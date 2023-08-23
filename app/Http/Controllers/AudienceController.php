@@ -26,7 +26,7 @@ class AudienceController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Add a newly created resource in storage.
      */
     function add() {
         return view('pages.audience');

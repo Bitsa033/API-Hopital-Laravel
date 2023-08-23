@@ -109,43 +109,15 @@
                  with font-awesome or any other icon font library -->
 
                     <li class="nav-item">
-                        <a class="nav-link">
-                            <i class="nav-icon fa fa-users"></i>
-                            <p> Utilisateur<i class="right fa fa-angle-left"></i></p>
+                        <a href="/users" class="nav-link">
+                        <i class="fa fa-users"></i> Users
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/utilisateur" class="nav-link">
-                                    <i class="fa fa-plus"></i> Ajouter
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/utilisateurs" class="nav-link">
-                                    <i class="fa fa-eye"></i> Afficher
-                                </a>
-                            </li>
-
-                        </ul>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link">
-                            <i class="nav-icon fa fa-clock"></i>
-                            <p> Audience<i class="right fa fa-angle-left"></i></p>
+                        <a href="/audiences" class="nav-link">
+                        <i class="fa fa-th"></i> Audiences
                         </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="/audience-add" class="nav-link">
-                                    <i class="fa fa-plus"></i> Ajouter
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="/audiences" class="nav-link">
-                                    <i class="fa fa-eye"></i> Afficher
-                                </a>
-                            </li>
-
-                        </ul>
                     </li>
 
                 </ul>

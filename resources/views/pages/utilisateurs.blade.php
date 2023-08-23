@@ -5,7 +5,7 @@
             <h5 class="container">Liste des Utilisateurs!</h5>
             <div class="card-body">
                 <div class="">
-                    <a href="/audience" class="btn btn-primary"> <i class="fa fa-plus"></i></a>
+                    <a href="/user-add" class="btn btn-primary"> <i class="fa fa-plus"></i></a>
                     <button class="btn btn-danger del-1"><i class="fa fa-trash"></i></button>
                     <button class="btn btn-success edit-1"><i class="fa fa-pen"></i></button>
                     <br><br>
@@ -22,15 +22,22 @@
                             <th>ID</th>
                             <th>Nom et prenom </th>
                             <th>Teléphone</th>
+                            <th>Adresse</th>
                             <th>Email</th>
                             <th>Type d'utilisateur</th>
                             
                         </tr>
                     </thead>
                     <tbody>
-                        <tr >
-                            <td colspan="6" class="text-center">Votre Tableau est vide pour le moment ...</td>
-                        </tr>
+                        @foreach ($users as $item)
+                            <tr >
+                                <td class="text-center">{{ $item->id}}  </td>
+                                <td class="text-center"> {{$item->name}} </td>
+                                <td class="text-center"> {{$item->phone}} </td>
+                                <td class="text-center"> {{$item->adress}} </td>
+                                <td class="text-center"> {{$item->email}} </td>
+                            </tr>
+                        @endforeach
                         
                     </tbody>
                 </table>

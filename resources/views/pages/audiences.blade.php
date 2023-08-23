@@ -5,7 +5,7 @@
             <h5 class="container">Liste des Audience!</h5>
             <div class="card-body">
                 <div class="">
-                    <a href="/audience" class="btn btn-primary"> <i class="fa fa-plus"></i></a>
+                    <a href="/audience-add" class="btn btn-primary"> <i class="fa fa-plus"></i></a>
                     <button class="btn btn-danger del-1"><i class="fa fa-trash"></i></button>
                     <button class="btn btn-success edit-1"><i class="fa fa-pen"></i></button>
                     <br><br>

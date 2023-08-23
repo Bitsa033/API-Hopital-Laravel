@@ -28,17 +28,27 @@
                         <label for="lname" class="col-sm-3 text-end control-label col-form-label">Type
                             d'audience</label>
                         <div class="col-sm-9">
-                            <select type="text" [(ngModel)]="audience.audience_type" name="audience_type"
+                            <select type="text" name="audience_type"
                                 class="form-control" >
-                                <option value="rendez-vous">Rendez-vous</option>
-                                <option value="consultation">Consultation</option>
+                                <option value="Informations/Conseils">Visite d'information</option>
+                                <option value="Suivi">Suivi médical individuel</option>
+                                <option value="Chirurgie">Chirurgie</option>
                             </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="email1" class="col-sm-3 text-end control-label col-form-label">Objet</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="objet" />
+                            <select type="text" class="form-control" name="objet" >
+                                <option value="Médécine générale">Médécine générale</option>
+                                <option value="Ophtamologie">Ophtamologie</option>
+                                <option value="Dermatologie">Dermatologie</option>
+                                <option value="Immunologie">Immunologie</option>
+                                <option value="Neurologie">Neurologie</option>
+                                <option value="Pneumologie">Pneumologie</option>
+                                <option value="Cardiologie">Cardiologie</option>
+                                <option value="Ondologie">Ondologie</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
@@ -51,7 +61,17 @@
                         <label for="cono1" class="col-sm-3 text-end control-label col-form-label">Responsable en
                             charge</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="nom_personnel" />
+                            <select type="text" class="form-control" name="nom_personnel" >
+                                <option value="Directeur général">Directeur général</option>
+                                <option value="Généraliste">Généraliste</option>
+                                <option value="Ophtamologue">Ophtamologue</option>
+                                <option value="Immunologue">Immunologue</option>
+                                <option value="Immunologue">Immunologue</option>
+                                <option value="Neurologue">Neurologue</option>
+                                <option value="Pneumologue">Pneumologue</option>
+                                <option value="Cardiologue">Cardiologue</option>
+                                <option value="Ondologue">Ondologue</option>
+                            </select>
                         </div>
                     </div>
                 </div>

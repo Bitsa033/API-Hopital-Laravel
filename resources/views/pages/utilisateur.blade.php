@@ -3,27 +3,27 @@
     <div class="row">
         <div class="offset-2 col-md-7" ng-app="">
             <h5 class="container">Nouvel Utilisateur!</h5>
-            <form autocomplete="off" class="form-horizontal card card-body" (ngSubmit)="saveAudience(registerForm)"
-                #registerForm="ngForm">
+            <form autocomplete="off" action="{{url('user-store')}}" method="POST" class="form-horizontal card card-body" >
+                @csrf
                 <h4 class="card-title">Informations Personnelles</h4>
                 <div class="card-body">
                     <div class="form-group row">
                         <label for="fname" class="col-sm-3 text-end control-label col-form-label">Nom
                             </label>
                         <div class="col-sm-9">
-                            <input type="text" name="nom_utilisateur" class="form-control" id="fname" />
+                            <input type="text" name="name" class="form-control" id="fname" />
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="lname" class="col-sm-3 text-end control-label col-form-label">Prenom</label>
+                        <label for="lname" class="col-sm-3 text-end control-label col-form-label">Adresse</label>
                         <div class="col-sm-9">
-                            <input type="text" name="prenom_utilisateur" class="form-control" id="lname" />
+                            <input type="text" name="adress" class="form-control" id="lname" />
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="lname" class="col-sm-3 text-end control-label col-form-label">Teléphone</label>
                         <div class="col-sm-9">
-                            <input type="text" name="telephone" class="form-control" />
+                            <input type="text" name="phone" class="form-control" />
                         </div>
                     </div>
                     <div class="form-group row">
@@ -35,7 +35,7 @@
                     <div class="form-group row">
                         <label for="cono1" class="col-sm-3 text-end control-label col-form-label">Mot de passe</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="mot_de_passe" />
+                            <input type="text" class="form-control" name="password" />
                         </div>
                     </div>
                     <div class="form-group row">
