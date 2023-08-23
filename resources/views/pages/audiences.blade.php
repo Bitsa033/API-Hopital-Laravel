@@ -28,9 +28,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr >
-                            <td colspan="6" class="text-center">Votre Tableau est vide pour le moment ...</td>
-                        </tr>
+                        @foreach ($audiences as $item)
+                            <tr >
+                                <td class="text-center">{{ $item->id}}  </td>
+                                <td class="text-center"> {{$item->nom_patient}} </td>
+                                <td class="text-center"> {{$item->qualite}} </td>
+                                <td class="text-center"> {{$item->audience_type}} </td>
+                                <td class="text-center"> {{$item->objet}} </td>
+                                <td class="text-center"> {{$item->message}} </td>
+                            </tr>
+                        @endforeach
                         
                     </tbody>
                 </table>

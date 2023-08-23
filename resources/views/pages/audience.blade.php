@@ -3,9 +3,9 @@
     <div class="row">
         <div class="offset-2 col-md-7" ng-app="">
             <h5 class="container">Nouvel Audience!</h5>
-            <form autocomplete="off" {{ route('saveAudience') }} class="form-horizontal card card-body">
+            <form autocomplete="off" action="{{url('audience-store')}}" method="POST" class="form-horizontal card card-body">
+                
                 @csrf
-                #registerForm="ngForm">
                 <h4 class="card-title">Informations Personnelles</h4>
                 <div class="card-body">
                     <div class="form-group row">
@@ -18,15 +18,21 @@
                     <div class="form-group row">
                         <label for="lname" class="col-sm-3 text-end control-label col-form-label">Qualité</label>
                         <div class="col-sm-9">
-                            <input type="text" name="qualite" class="form-control" id="lname" />
+                            <select type="text" name="qualite" class="form-control" id="lname">
+                                <option value="visiteur">Visiteur</option>
+                                <option value="patient">Patient</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="lname" class="col-sm-3 text-end control-label col-form-label">Type
                             d'audience</label>
                         <div class="col-sm-9">
-                            <input type="text" [(ngModel)]="audience.audience_type" name="audience_type"
-                                class="form-control" />
+                            <select type="text" [(ngModel)]="audience.audience_type" name="audience_type"
+                                class="form-control" >
+                                <option value="rendez-vous">Rendez-vous</option>
+                                <option value="consultation">Consultation</option>
+                            </select>
                         </div>
                     </div>
                     <div class="form-group row">

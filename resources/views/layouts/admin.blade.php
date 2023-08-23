@@ -135,7 +135,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="/audience" class="nav-link">
+                                <a href="/audience-add" class="nav-link">
                                     <i class="fa fa-plus"></i> Ajouter
                                 </a>
                             </li>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AudienceController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,14 +17,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+//audiences
+Route::get('audiences', [AudienceController::class,'index']);
+Route::get('audience-add', [AudienceController::class,'add']);
+Route::post('audience-store', [AudienceController::class,'store']);
 
-Route::get('audience', function () {
-    return view('pages/audience');
-});
+// utilisateurs
+Route::get('user-add', [AudienceController::class,'add']);
+Route::post('user', [AudienceController::class,'save']);
 
-Route::get('audiences', function () {
-    return view('pages/audiences');
-});
+
+// Route::get('audiences', function () {
+//     return redirect('http://localhost:3000/api/users');
+// });
 
 Route::get('utilisateur', function () {
     return view('pages/utilisateur');
