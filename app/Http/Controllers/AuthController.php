@@ -24,6 +24,11 @@ class AuthController extends Controller
         ]);
     }
 
+    function loginForm()
+    {
+        return view('pages/loginForm',[ ]);
+    }
+
     /**
      * Display the specified animal resource.
      */
@@ -49,10 +54,11 @@ class AuthController extends Controller
     {
         
         // $request->validated($request->all());
-        $user = User::create([
+        User::create([
             'name' => $request->name,
             'phone' => $request->phone,
             'adress' => $request->adress,
+            'type' => $request->type,
             'email' => $request->email,
             'password' => Hash::make($request->password)
         ]);
@@ -91,19 +97,17 @@ class AuthController extends Controller
         
     }
 
-    function login(LoginUserRequet $request)
+    function login(Request $request)
     {
-        $credentials=["email"=>$request->email, "password"=>$request->password];
+        $credentials=["name"=>$request->name2, "password"=>$request->password];
         if (!Auth::attempt($credentials)) {
-            return $this->erreur($credentials,'Email ou mot de passe incorect',201);
+            return $this->erreur($credentials,'Nom ou mot de passe incorect',201);
         }
 
-        $user = User::where("email",$request->email)->first();
+        $user = User::where("name",$request->name2)->first();
+        dd($user);
 
-        return $this->loginUser([
-            'user'=>$user,
-            'token'=>$user->createToken('API key token pour '.$user->name)->plainTextToken
-        ]);
+        //return redirect('audiences');
 
         
     }

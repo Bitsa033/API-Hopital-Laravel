@@ -4,7 +4,6 @@
         <div class="offset-2 col-md-7" ng-app="">
             <h5 class="container">Nouvel Audience!</h5>
             <form autocomplete="off" action="{{url('audience-store')}}" method="POST" class="form-horizontal card card-body">
-                
                 @csrf
                 <h4 class="card-title">Informations Personnelles</h4>
                 <div class="card-body">

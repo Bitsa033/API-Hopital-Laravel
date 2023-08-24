@@ -41,9 +41,10 @@
                     <div class="form-group row">
                         <label for="cono1" class="col-sm-3 text-end control-label col-form-label">Type utilisateur</label>
                         <div class="col-sm-9">
-                            <select type="text" class="form-control" name="type_utilisateur">
-                                <option value="s">Sécretaire</option>
-                                <option value="d">Directeur</option>
+                            <select type="text" class="form-control" name="type">
+                                <option value="Sécretaire">Sécretaire</option>
+                                <option value="Directeur">Directeur</option>
+                                <option value="Administrateur">Administrateur</option>
                             </select>
                         </div>
                     </div>

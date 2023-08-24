@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="dist/fontawesome-free/css/all.min.css">
 <!-- Theme style -->
 <link rel="stylesheet" href="dist/css/adminlte.min.css">
-
 <!-- Site wrapper -->
 <div class="wrapper">
     <!-- Navbar -->
@@ -156,7 +155,6 @@
     <!-- /.control-sidebar -->
 </div>
 <!-- ./wrapper -->
-
 <script src="dist/js/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="dist/js/bootstrap.bundle.min.js"></script>

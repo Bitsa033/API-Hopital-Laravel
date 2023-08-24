@@ -36,6 +36,7 @@
                                 <td class="text-center"> {{$item->phone}} </td>
                                 <td class="text-center"> {{$item->adress}} </td>
                                 <td class="text-center"> {{$item->email}} </td>
+                                 <td class="text-center"> {{$item->type}} </td>
                             </tr>
                         @endforeach
                         
