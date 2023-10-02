@@ -1,69 +1,87 @@
-@extends('layouts/admin')
-@section('content')
-    <div class="row">
-        <div class="offset-2 col-md-7" ng-app="">
-            <h5 class="container">Nouvel Utilisateur!</h5>
-            <form autocomplete="off" action="{{url('user-store')}}" method="POST" class="form-horizontal card card-body" >
-                @csrf
-                <h4 class="card-title">Informations Personnelles</h4>
-                <div class="card-body">
-                    <div class="form-group row">
-                        <label for="fname" class="col-sm-3 text-end control-label col-form-label">Nom
-                            </label>
-                        <div class="col-sm-9">
-                            <input type="text" name="name" class="form-control" id="fname" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="lname" class="col-sm-3 text-end control-label col-form-label">Adresse</label>
-                        <div class="col-sm-9">
-                            <input type="text" name="adress" class="form-control" id="lname" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="lname" class="col-sm-3 text-end control-label col-form-label">Teléphone</label>
-                        <div class="col-sm-9">
-                            <input type="text" name="phone" class="form-control" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="email" class="col-sm-3 text-end control-label col-form-label">Email</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" name="email" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="cono1" class="col-sm-3 text-end control-label col-form-label">Mot de passe</label>
-                        <div class="col-sm-9">
-                            <input type="text" class="form-control" name="password" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="cono1" class="col-sm-3 text-end control-label col-form-label">Type utilisateur</label>
-                        <div class="col-sm-9">
-                            <select type="text" class="form-control" name="type">
-                                <option value="Sécretaire">Sécretaire</option>
-                                <option value="Directeur">Directeur</option>
-                                <option value="Administrateur">Administrateur</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="border-top">
-                    <div class="card-body">
-                        <button type="submit" class="btn btn-primary">
-                            Enregistrer
-                        </button>
-                        <br><br>
-
-                    </div>
-                </div>
-            </form>
+@include('layouts/link')
+<body class="hold-transition register-page">
+  
+  <div class="login-box ">
+      <!-- /.login-logo -->
+      <div class="card card-outline card-primary">
+        <div class="card-header text-center">
+          <a href="../../index2.html" class="h1"><b>Médico</b>APP</a>
         </div>
-        
-        <!--/col-->
-
-    </div>
-    <!--/row-->
+        <div class="card-body">
+          <p class="login-box-msg">Enregistez-vous pour démarrer votre session !</p>
     
-@endsection
+          <form autocomplete="off" action="{{url('user-store')}}" method="POST" >
+            @csrf
+            <div class="input-group mb-3">
+              <input type="text" name="name" class="form-control" placeholder="Nom">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-user"></span>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" name="adress" class="form-control" placeholder="Adresse">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-map"></span>
+                  </div>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" name="phone" class="form-control" placeholder="Téléphone">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-phone"></span>
+                  </div>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" name="email" class="form-control" placeholder="Email">
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-mail"></span>
+                  </div>
+                </div>
+            </div>
+            <div class="input-group mb-3">
+              <input type="password" name="password" class="form-control" placeholder="Password">
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-lock"></span>
+                </div>
+              </div>
+            </div>
+            <div class="input-group mb-3">
+                <select type="text" class="form-control" name="type">
+                    <option value="Sécretaire">Sécretaire</option>
+                    <option value="Directeur">Directeur</option>
+                    <option value="Administrateur">Administrateur</option>
+                </select>
+                <div class="input-group-append">
+                  <div class="input-group-text">
+                    <span class="fas fa-user"></span>
+                  </div>
+                </div>
+            </div>
+            <div class="row">
+              
+              <!-- /.col -->
+              <div class="col-6">
+                <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+              </div>
+              <!-- /.col -->
+            </div>
+          </form>
+    
+          <p class="mb-0">
+            <a href="/login" class="text-center">J'ai déja un compte</a>
+          </p>
+        </div>
+        <!-- /.card-body -->
+      </div>
+      <!-- /.card -->
+    </div>
+    <!-- /.login-box -->
+</body>
+ 

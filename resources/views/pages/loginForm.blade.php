@@ -46,10 +46,10 @@
           </form>
     
           <p class="mb-1">
-            <a href="forgot-password.html">J'ai oublié mon mot de passe</a>
+            <a href="/forgot-password">J'ai oublié mon mot de passe</a>
           </p>
           <p class="mb-0">
-            <a href="register.html" class="text-center">Je n'ai pas de compte</a>
+            <a href="/user-add" class="text-center">Je n'ai pas de compte</a>
           </p>
         </div>
         <!-- /.card-body -->

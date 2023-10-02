@@ -1,6 +1,7 @@
 @extends('layouts/admin')
 @section('content')
     <div class="row">
+        
         <div class="col-md-10" ng-app="">
             <h5 class="container">Liste des Audience!</h5>
             <div class="card-body">
