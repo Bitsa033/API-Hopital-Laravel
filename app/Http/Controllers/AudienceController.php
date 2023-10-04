@@ -21,7 +21,8 @@ class AudienceController extends Controller
         $audiences= Audience::all();
         
         return view('pages/audiences',[
-            'audiences'=>$audiences
+            'audiences'=>$audiences,
+            'user'=>'toto'
         ]);
     }
 

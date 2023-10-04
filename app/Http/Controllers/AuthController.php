@@ -107,7 +107,7 @@ class AuthController extends Controller
         $user = User::where("name",$request->name2)->first();
         //dd($user);
 
-        return redirect('audiences',['user'=>$user]);
+        return redirect('audiences');
 
         
     }
