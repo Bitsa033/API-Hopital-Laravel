@@ -8,6 +8,7 @@ use App\Http\Requests\UpdateAudienceRequest;
 use App\Http\Resources\Audience as ResourcesAudience;
 use App\Trait\HttpResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AudienceController extends Controller
@@ -19,6 +20,10 @@ class AudienceController extends Controller
     public function index()
     {
         $audiences= Audience::all();
+        if (!Auth::user()) {
+            # code...
+            return redirect('/');
+        }
         
         return view('pages/audiences',[
             'audiences'=>$audiences,

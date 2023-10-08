@@ -68,14 +68,14 @@
               
               <!-- /.col -->
               <div class="col-6">
-                <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
+                <button type="submit" class="btn btn-primary btn-block">S'enregistrer</button>
               </div>
               <!-- /.col -->
             </div>
           </form>
     
           <p class="mb-0">
-            <a href="/login" class="text-center">J'ai déja un compte</a>
+            <a href="/" class="text-center">J'ai déja un compte</a>
           </p>
         </div>
         <!-- /.card-body -->

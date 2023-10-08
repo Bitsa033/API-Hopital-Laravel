@@ -24,11 +24,11 @@ Route::get('audience-add', [AudienceController::class,'add']);
 Route::post('audience-store', [AudienceController::class,'store']);
 
 // utilisateurs
-Route::get('/', [AuthController::class,'loginForm']);
+Route::get('/', [AuthController::class,'loginForm'])->name('connexion');
 Route::get('user-add', [AuthController::class,'add']);
 Route::post('user-store', [AuthController::class,'store']);
-Route::post('login', [AuthController::class,'login']);
-Route::post('logout', [AuthController::class,'logout']);
+// Route::post('login', [AuthController::class,'login']);
+// Route::post('logout', [AuthController::class,'logout']);
 Route::get('users', [AuthController::class,'index']);
 
 

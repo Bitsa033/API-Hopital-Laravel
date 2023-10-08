@@ -99,12 +99,13 @@ class AuthController extends Controller
 
     function login(Request $request)
     {
+        dd('lo');
         $credentials=["name"=>$request->name2, "password"=>$request->password];
         if (!Auth::attempt($credentials)) {
             return $this->erreur($credentials,'Nom ou mot de passe incorect',201);
         }
 
-        $user = User::where("name",$request->name2)->first();
+         User::where("name",$request->name2)->first();
         //dd($user);
 
         return redirect('audiences');

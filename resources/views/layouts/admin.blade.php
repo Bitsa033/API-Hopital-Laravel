@@ -80,11 +80,24 @@
             <!-- Sidebar user (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                                                     
+                    <img src="dist/img/avatar.png" alt="" srcset="" width="150">
                 </div>
+
                 <div class="info">
-                    <a href="#" class="d-block"></a>
+                    <a href="href={{ route('logout') }}" class="d-block"
+                        onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();"
+                        {{ __('Logout') }}>
+                        {{ Auth::user()->name }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
+
                 </div>
+
+
             </div>
 
             <!-- SidebarSearch Form -->
@@ -109,13 +122,13 @@
 
                     <li class="nav-item">
                         <a href="/users" class="nav-link">
-                        <i class="fa fa-users"></i> Users
+                            <i class="fa fa-users"></i> Users
                         </a>
                     </li>
 
                     <li class="nav-item">
                         <a href="/audiences" class="nav-link">
-                        <i class="fa fa-th"></i> Audiences
+                            <i class="fa fa-th"></i> Audiences
                         </a>
                     </li>
 
