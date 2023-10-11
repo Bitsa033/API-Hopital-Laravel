@@ -10,17 +10,23 @@
         <div class="col-md-10" ng-app="">
             <h5 class="container">Liste des Audience!</h5>
             <div class="card-body">
-                <div class="">
-                    <a href="/audience-add" class="btn btn-primary"> <i class="fa fa-plus"></i></a>
-                    <button class="btn btn-danger del-1"><i class="fa fa-trash"></i></button>
-                    <button class="btn btn-success edit-1"><i class="fa fa-pen"></i></button>
-                    <br><br>
+                <div class="form-inline">
+                    <!-- supprimer un élément-->
                     <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Mot clé" aria-label="Search">
+                        <input class="form-control me-2" type="text" placeholder="Ticket ID" aria-label="test">
+                        <button class="btn btn-outline-danger" type="submit"><i class="fa fa-trash"></i></button>
+                    </form>
+                    <!-- rechercher un élément dans la table-->
+                    <form class="d-flex offset-1">
+                        <input class="form-control me-2" type="test" placeholder="Mot clé" aria-label="text">
                         <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
                     </form>
-
+                    <a href="/audience-add" class="btn btn-primary"><i class="fa fa-plus"> Nouveau Ticket</i></a>
+                    <a href="/audience-add" class="btn btn-warning"><i class="fa fa-edit"> Modifier Ticket</i></a>
+                    <a href="/printAudiences" target="_blank" rel="noopener noreferrer"  class="btn btn-info"><i class="fa fa-print"> Imprimer tous les Tickets</i></a>
+                    
                 </div>
+                <br>
 
                 <table class="table table-stripped table-bordered" *ngIf="produits">
                     <thead>

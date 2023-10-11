@@ -32,6 +32,23 @@ class AudienceController extends Controller
     }
 
     /**
+     * Print all data audiences.
+     */
+    public function printAudiences()
+    {
+        $audiences= Audience::all();
+        if (!Auth::user()) {
+            # code...
+            return redirect('/');
+        }
+        
+        return view('pages/printAudiences',[
+            'audiences'=>$audiences,
+            'user'=>'toto'
+        ]);
+    }
+
+    /**
      * Add a newly created resource in storage.
      */
     function add() {

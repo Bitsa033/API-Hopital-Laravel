@@ -20,12 +20,14 @@ Route::get('welcome', function () {
 });
 //audiences
 Route::get('audiences', [AudienceController::class,'index']);
+Route::get('printAudiences', [AudienceController::class,'printAudiences']);
 Route::get('audience-add', [AudienceController::class,'add']);
 Route::post('audience-store', [AudienceController::class,'store']);
 
-// utilisateurs
+// users
+Route::get('printUsers', [AuthController::class,'printUsers']);
 Route::get('/', [AuthController::class,'loginForm'])->name('connexion');
-Route::get('user-add', [AuthController::class,'add']);
+Route::get('user-add', [AuthController::class,'registerForm']);
 Route::post('user-store', [AuthController::class,'store']);
 // Route::post('login', [AuthController::class,'login']);
 // Route::post('logout', [AuthController::class,'logout']);

@@ -16,11 +16,20 @@ class AuthController extends Controller
 {
     use HttpResponse;
 
-    function index()
+    /**
+     * Print all data audiences.
+     */
+    public function printUsers()
     {
-        $users = User::all();
-        return view('pages/utilisateurs',[
-            'users'=>$users
+        $users= User::all();
+        if (!Auth::user()) {
+            # code...
+            return redirect('/');
+        }
+        
+        return view('pages/printUsers',[
+            'users'=>$users,
+            'user'=>'toto'
         ]);
     }
 
@@ -34,30 +43,27 @@ class AuthController extends Controller
     }
 
     /**
-     * Display the specified animal resource.
-     */
-    public function show($id)
-    {
-        if (!is_numeric($id)) {
-            return "Le paramètre id doit etre un nombre";
-        } else {
-            $user= User::find($id);
-            return new ResourcesUsers($user);
-        }
-        
-    }
-
-    /**
      * Add a newly created resource in storage.
      */
     function registerForm() {
         return view('pages.registerForm');
     }
 
-    function store(Request $request)
+    function index()
     {
-        
-        // $request->validated($request->all());
+        if (!Auth::user()) {
+            # code...
+            return redirect('/');
+        }
+        $users = User::all();
+        return view('pages/users',[
+            'users'=>$users
+        ]);
+    }
+
+    function store(StoreUsersRequest $request)
+    {
+        $request->validated($request->all());
         User::create([
             'name' => $request->name,
             'phone' => $request->phone,
@@ -68,6 +74,20 @@ class AuthController extends Controller
         ]);
         
         return redirect('user-add');
+        
+    }
+
+    /**
+     * Display the specified animal resource.
+     */
+    public function show($id)
+    {
+        if (!is_numeric($id)) {
+            return "Le paramètre id doit etre un nombre";
+        } else {
+            $user= User::find($id);
+            return new ResourcesUsers($user);
+        }
         
     }
 
@@ -114,7 +134,6 @@ class AuthController extends Controller
 
         return redirect('audiences');
 
-        
     }
 
     function logout()
