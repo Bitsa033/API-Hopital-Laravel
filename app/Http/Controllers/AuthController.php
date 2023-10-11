@@ -26,6 +26,10 @@ class AuthController extends Controller
 
     function loginForm()
     {
+        if (Auth::user()) {
+            # code...
+            return redirect('audiences');
+        }
         return view('pages/loginForm',[ ]);
     }
 
@@ -46,8 +50,8 @@ class AuthController extends Controller
     /**
      * Add a newly created resource in storage.
      */
-    function add() {
-        return view('pages.utilisateur');
+    function registerForm() {
+        return view('pages.registerForm');
     }
 
     function store(Request $request)
@@ -99,13 +103,13 @@ class AuthController extends Controller
 
     function login(Request $request)
     {
-        dd('lo');
-        $credentials=["name"=>$request->name2, "password"=>$request->password];
+        // dd('lo');
+        $credentials=["name"=>$request->name, "password"=>$request->password];
         if (!Auth::attempt($credentials)) {
             return $this->erreur($credentials,'Nom ou mot de passe incorect',201);
         }
 
-         User::where("name",$request->name2)->first();
+         User::where("name",$request->name)->first();
         //dd($user);
 
         return redirect('audiences');
