@@ -2,8 +2,18 @@
 @section('content')
     <div class="row">
         <div class="offset-2 col-md-7" ng-app="">
-            <h5 class="container">Nouvel Audience!</h5>
-            <form autocomplete="off" action="{{url('audience-store')}}" method="POST" class="form-horizontal card card-body">
+            <h5 class="container">
+            @if (!$erreur)
+                Nouvelle Audience!
+                
+            @else
+                <div class="alert alert-danger">
+                    {{$erreur}}
+                </div>
+            @endif
+           
+            </h5>
+            <form autocomplete="off" action="{{url('storeAudience')}}" method="POST" class="form-horizontal card card-body">
                 @csrf
                 <h4 class="card-title">Informations Personnelles</h4>
                 <div class="card-body">

@@ -26,7 +26,6 @@ class StoreAudienceRequest extends FormRequest
             'qualite'=>'required|string',
             'audience_type'=>'required|string',
             'objet'=>'required|string',
-            'message'=>'required|text',
             'nom_personnel'=>'required|string',
         ];
     }

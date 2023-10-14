@@ -15,13 +15,12 @@ class AudienceController extends Controller
 {
     use HttpResponse;
     /**
-     * Display a listing of the resource.
+     * Display all data audiences.
      */
     public function index()
     {
         $audiences= Audience::all();
         if (!Auth::user()) {
-            # code...
             return redirect('/');
         }
         
@@ -38,7 +37,6 @@ class AudienceController extends Controller
     {
         $audiences= Audience::all();
         if (!Auth::user()) {
-            # code...
             return redirect('/');
         }
         
@@ -49,32 +47,62 @@ class AudienceController extends Controller
     }
 
     /**
-     * Add a newly created resource in storage.
+     * Show the existing audience.
      */
-    function add() {
-        return view('pages.audience');
+    public function showAudience($id) {
+        if (!Auth::user()) {
+            return redirect('/');
+        }
+        $audience= Audience::findOrfail($id);
+        // dd($audience);
+        return view('pages.showAudience',['audience'=>$audience]);
+    }
+    
+    /**
+     * Create a newly audience.
+     */
+    public function createAudience() {
+
+        if (!Auth::user()) {
+            return redirect('/');
+        }
+        return view('pages.audience',['erreur'=>'']);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created audience in storage.
      */
-    public function store(Request $request)
+    public function storeAudience(StoreAudienceRequest $request)
     {
-        //$request->validated($request->all());
-        $audience=Audience::create([
-            'nom_patient'=>$request->nom_patient,
-            'qualite'=>$request->qualite,
-            'audience_type'=>$request->audience_type,
-            'objet'=>$request->objet,
-            'message'=>$request->message,
-            'nom_personnel'=>$request->nom_personnel
-        ]);
+        try {
+            
+            $request->validated($request->all());
+            $message='';
+            if ($request->message == null) {
+                $message='Rien à signaler !';
+            }
+            else {
+               $message=$request->message;
+            }
+            Audience::create([
+                'nom_patient'=>$request->nom_patient,
+                'qualite'=>$request->qualite,
+                'audience_type'=>$request->audience_type,
+                'objet'=>$request->objet,
+                'message'=>$message,
+                'nom_personnel'=>$request->nom_personnel
+            ]);
+    
+            return redirect('createAudience');
 
-        return redirect('audience-add');
+        } catch (\Throwable $th) {
+            // throw $th;
+            $erreur=$th->getMessage();
+            // dd($erreur);
+            return view('pages/audience',['erreur'=>$erreur]);
+            // die('érreur: '.$th->getMessage());
+        }
 
-        // return $this->success([
-        //     'audience'=>$audience
-        // ]);
     }
 
     /**

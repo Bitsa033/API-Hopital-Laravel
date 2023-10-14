@@ -10,7 +10,7 @@
         <div class="card-body">
           <p class="login-box-msg">Enregistez-vous pour démarrer votre session !</p>
     
-          <form autocomplete="off" action="{{url('user-store')}}" method="POST" >
+          <form autocomplete="off" action="{{url('storeUser')}}" method="POST" >
             @csrf
             <div class="input-group mb-3">
               <input type="text" name="name" class="form-control" placeholder="Nom">

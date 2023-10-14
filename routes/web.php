@@ -20,18 +20,19 @@ Route::get('welcome', function () {
 });
 //audiences
 Route::get('audiences', [AudienceController::class,'index']);
+Route::get('showAudience_{id}', [AudienceController::class,'showAudience']);
+Route::get('updateAudience', [AudienceController::class,'updateAudience']);
 Route::get('printAudiences', [AudienceController::class,'printAudiences']);
-Route::get('audience-add', [AudienceController::class,'add']);
-Route::post('audience-store', [AudienceController::class,'store']);
+Route::get('printAudience', [AudienceController::class,'printAudience']);
+Route::get('createAudience', [AudienceController::class,'createAudience']);
+Route::post('storeAudience', [AudienceController::class,'storeAudience']);
 
 // users
-Route::get('printUsers', [AuthController::class,'printUsers']);
-Route::get('/', [AuthController::class,'loginForm'])->name('connexion');
-Route::get('user-add', [AuthController::class,'registerForm']);
-Route::post('user-store', [AuthController::class,'store']);
-// Route::post('login', [AuthController::class,'login']);
-// Route::post('logout', [AuthController::class,'logout']);
+Route::get('/', [AuthController::class,'loginForm']);
 Route::get('users', [AuthController::class,'index']);
+Route::get('printUsers', [AuthController::class,'printUsers']);
+// Route::get('registerForm', [AuthController::class,'registerForm']);
+Route::post('storeUser', [AuthController::class,'store']);
 
 
 Auth::routes();
