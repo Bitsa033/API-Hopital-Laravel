@@ -22,9 +22,7 @@ class UpdateAudienceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'qualite'=>'required|string',
-            'audience_type'=>'required|string',
-            'objet'=>'required|string',
+            'nom_patient'=>'required|string',
             'message'=>'required|text',
             'nom_personnel'=>'required|string',
         ];

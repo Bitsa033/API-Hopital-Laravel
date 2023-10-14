@@ -31,6 +31,32 @@ class AudienceController extends Controller
     }
 
     /**
+     * Show one data audience.
+     */
+    public function showAudience($id) {
+        if (!Auth::user()) {
+            return redirect('/');
+        }
+        $audience= Audience::findOrfail($id);
+        // dd($audience);
+        return view('pages.showAudience',['audience'=>$audience]);
+    }
+
+    /**
+     * Display the specified data audience by name.
+     */
+    public function showByName($name)
+    {
+        if (!is_string($name)) {
+            return "Le paramètre nom doit etre un nom";
+        } else {
+            $audience= DB::table('audiences')->where('nom_patient', $name)->get();
+            return new ResourcesAudience($audience);
+        }
+        
+    }
+
+    /**
      * Print all data audiences.
      */
     public function printAudiences()
@@ -44,18 +70,6 @@ class AudienceController extends Controller
             'audiences'=>$audiences,
             'user'=>'toto'
         ]);
-    }
-
-    /**
-     * Show the existing audience.
-     */
-    public function showAudience($id) {
-        if (!Auth::user()) {
-            return redirect('/');
-        }
-        $audience= Audience::findOrfail($id);
-        // dd($audience);
-        return view('pages.showAudience',['audience'=>$audience]);
     }
     
     /**
@@ -106,53 +120,20 @@ class AudienceController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Update the specified data audience in storage.
      */
-    public function show($id)
+    public function updateAudience(UpdateAudienceRequest $request, $id)
     {
-        if (!is_numeric($id)) {
-            return "Le paramètre id doit etre un nombre";
-        } else {
-            $audience= Audience::find($id);
-            return new ResourcesAudience($audience);
-        }
-    }
-
-    /**
-     * Display the specified product by name.
-     */
-    public function showByName($name)
-    {
-        if (!is_string($name)) {
-            return "Le paramètre nom doit etre un nom";
-        } else {
-            $audience= DB::table('audiences')->where('nom_patient', $name)->get();
-            return new ResourcesAudience($audience);
-        }
-        
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id)
-    {
-        // $request->validated($request->all());
+        $request->validated($request->all());
         $audience= Audience::find($id);
         
-        //$request->validated($request->all());
         $audience->update([
             'nom_patient'=>$request->nom_patient,
-            'qualite'=>$request->qualite,
-            'audience_type'=>$request->audience_type,
-            'objet'=>$request->objet,
             'message'=>$request->message,
             'nom_personnel'=>$request->nom_personnel
         ]);
 
-        return $this->success([
-            'produit'=>$audience
-        ]);
+        return redirect('audiences');
     }
 
     /**
