@@ -31,7 +31,7 @@ Route::post('storeAudience', [AudienceController::class,'storeAudience']);
 Route::get('/', [AuthController::class,'loginForm']);
 Route::get('users', [AuthController::class,'index']);
 Route::get('printUsers', [AuthController::class,'printUsers']);
-// Route::get('registerForm', [AuthController::class,'registerForm']);
+Route::get('registerForm', [AuthController::class,'registerForm']);
 Route::post('storeUser', [AuthController::class,'store']);
 
 
