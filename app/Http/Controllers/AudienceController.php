@@ -133,7 +133,7 @@ class AudienceController extends Controller
             'nom_personnel'=>$request->nom_personnel
         ]);
 
-        return redirect('audiences');
+        return redirect('audiences')->with('success','Donnée modifiée avec sucès!');
     }
 
     /**

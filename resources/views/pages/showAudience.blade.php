@@ -38,7 +38,8 @@
                     </tbody>
                 </table>
                 <br>
-                <form autocomplete="off" action="{{url('updateAudience')}}" method="POST" class="form-horizontal card card-body">
+               
+                <form autocomplete="off" action="{{url('updateAudience',$audience->id)}}" method="POST" class="form-horizontal card card-body">
                     @csrf
                     <h4 class="card-title">Mise à jour</h4>
                     <div class="card-body">

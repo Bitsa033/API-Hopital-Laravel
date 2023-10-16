@@ -21,7 +21,7 @@ Route::get('welcome', function () {
 //audiences
 Route::get('audiences', [AudienceController::class,'index']);
 Route::get('showAudience_{id}', [AudienceController::class,'showAudience']);
-Route::put('updateAudience', [AudienceController::class,'updateAudience']);
+Route::post('updateAudience/{id}', [AudienceController::class,'updateAudience']);
 Route::get('printAudiences', [AudienceController::class,'printAudiences']);
 Route::get('printAudience', [AudienceController::class,'printAudience']);
 Route::get('createAudience', [AudienceController::class,'createAudience']);

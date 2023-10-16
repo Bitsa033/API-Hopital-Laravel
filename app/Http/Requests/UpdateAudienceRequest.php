@@ -23,7 +23,9 @@ class UpdateAudienceRequest extends FormRequest
     {
         return [
             'nom_patient'=>'required|string',
-            'message'=>'required|text',
+            // 'qualite'=>'required|string',
+            // 'audience_type'=>'required|string',
+            // 'objet'=>'required|string',
             'nom_personnel'=>'required|string',
         ];
     }
