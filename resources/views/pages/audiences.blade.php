@@ -16,9 +16,14 @@
             <div class="card-body">
                 <div class="form-inline">
                     <!-- rechercher un élément dans la table-->
-                    <form class="d-flex offset-1">
+                    <form class="d-flex">
                         <input class="form-control me-2" type="test" placeholder="Mot clé" aria-label="text">
                         <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                    <!-- supprimer un élément-->
+                    <form class="d-flex offset-1">
+                        <input class="form-control me-2" type="text" placeholder="User ID" aria-label="test">
+                        <button class="btn btn-outline-danger" type="submit"><i class="fa fa-trash"></i></button>
                     </form>
 
                 </div>

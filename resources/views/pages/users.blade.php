@@ -5,15 +5,15 @@
             <h5 class="container">Liste des Utilisateurs!</h5>
             <div class="card-body">
                 <div class="form-inline">
-                    <!-- supprimer un élément-->
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="text" placeholder="User ID" aria-label="test">
-                        <button class="btn btn-outline-danger" type="submit"><i class="fa fa-trash"></i></button>
-                    </form>
                     <!-- rechercher un élément dans la table-->
-                    <form class="d-flex offset-1">
+                    <form class="d-flex ">
                         <input class="form-control me-2" type="test" placeholder="Mot clé" aria-label="text">
                         <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                    <!-- supprimer un élément-->
+                    <form class="d-flex offset-1">
+                        <input class="form-control me-2" type="text" placeholder="User ID" aria-label="test">
+                        <button class="btn btn-outline-danger" type="submit"><i class="fa fa-trash"></i></button>
                     </form>
                     <a href="/user-add" class="btn btn-primary"><i class="fa fa-plus"> Nouveau User</i></a>
                     <a href="/user-add" class="btn btn-warning"><i class="fa fa-edit"> Modifier User</i></a>
