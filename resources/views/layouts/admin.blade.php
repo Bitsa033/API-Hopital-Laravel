@@ -72,7 +72,7 @@
         <a class="brand-link">
             <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
                 style="opacity: .8">
-            <span class="brand-text font-weight-light">Medico App</span>
+            <span class="brand-text font-weight-light">Hospital App</span>
         </a>
 
         <!-- Sidebar -->
@@ -122,7 +122,19 @@
 
                     <li class="nav-item">
                         <a href="/users" class="nav-link">
-                            <i class="fa fa-users"></i> Users
+                            <i class="fa fa-users"></i> Utilisateurs
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/users" class="nav-link">
+                            <i class="fa fa-users"></i> Employés
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="/users" class="nav-link">
+                            <i class="fa fa-users"></i> Patients
                         </a>
                     </li>
 
@@ -131,6 +143,8 @@
                             <i class="fa fa-th"></i> Audiences
                         </a>
                     </li>
+
+
 
                 </ul>
             </nav>
