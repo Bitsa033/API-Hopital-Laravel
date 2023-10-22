@@ -11,7 +11,7 @@
 <table class="table table-stripped table-bordered" *ngIf="produits">
     <thead>
         <tr>
-            <th>Ticket ID</th>
+            <th>Responsable en charge</th>
             <th>Nom patient</th>
             <th>Qualité</th>
             <th>Type d'audience</th>
@@ -22,7 +22,7 @@
     <tbody>
         @foreach ($audiences as $item)
             <tr>
-                <td class="text-center">{{ $item->id }} </td>
+                <td class="text-center">{{ $item->nom_personnel }} </td>
                 <td class="text-center"> {{ $item->nom_patient }} </td>
                 <td class="text-center"> {{ $item->qualite }} </td>
                 <td class="text-center"> {{ $item->audience_type }} </td>

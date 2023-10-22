@@ -22,6 +22,7 @@ Route::get('welcome', function () {
 Route::get('audiences', [AudienceController::class,'index']);
 Route::get('showAudience_{id}', [AudienceController::class,'showAudience']);
 Route::post('updateAudience/{id}', [AudienceController::class,'updateAudience']);
+Route::get('deleteAudience/{id}', [AudienceController::class,'deleteAudience']);
 Route::get('printAudiences', [AudienceController::class,'printAudiences']);
 Route::get('printAudience', [AudienceController::class,'printAudience']);
 Route::get('createAudience', [AudienceController::class,'createAudience']);
@@ -29,10 +30,14 @@ Route::post('storeAudience', [AudienceController::class,'storeAudience']);
 
 // users
 Route::get('/', [AuthController::class,'loginForm']);
+Route::post('loginUser', [AuthController::class,'loginUser']);
 Route::get('users', [AuthController::class,'index']);
+Route::get('showUser_{id}', [AuthController::class,'showUser']);
+Route::post('updateUser/{id}', [AuthController::class,'updateUser']);
+Route::get('deleteUser/{id}', [AuthController::class,'deleteUser']);
 Route::get('printUsers', [AuthController::class,'printUsers']);
-Route::get('registerForm', [AuthController::class,'registerForm']);
-Route::post('storeUser', [AuthController::class,'store']);
+Route::get('createUser', [AuthController::class,'createUser']);
+Route::post('storeUser', [AuthController::class,'storeUser']);
 
 
 Auth::routes();

@@ -19,7 +19,7 @@
                 <div class="card-body">
                     <div class="form-group row">
                         <label for="fname" class="col-sm-3 text-end control-label col-form-label">Nom
-                            visiteur</label>
+                            Client</label>
                         <div class="col-sm-9">
                             <input type="text" name="nom_patient" class="form-control" id="fname" />
                         </div>
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="email1" class="col-sm-3 text-end control-label col-form-label">Objet</label>
+                        <label for="objet" class="col-sm-3 text-end control-label col-form-label">Objet</label>
                         <div class="col-sm-9">
                             <select type="text" class="form-control" name="objet" >
                                 <option value="Médécine générale">Médécine générale</option>

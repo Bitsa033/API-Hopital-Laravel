@@ -23,16 +23,16 @@
                             <td class="text-center"> {{ $audience->audience_type }} </td>
                         </tr>
                         <tr>
-                            <th>Responsable d'audience</th>
-                            <td class="text-center"> {{ $audience->nom_personnel }} </td>
-                        </tr>
-                        <tr>
                             <th>Objet</th>
                             <td class="text-center"> {{ $audience->objet }} </td>
                         </tr>
                         <tr>
                             <th>Message</th>
                             <td class="text-center"> {{ $audience->message }} </td>
+                        </tr>
+                        <tr>
+                            <th>Responsable d'audience</th>
+                            <td class="text-center"> {{ $audience->nom_personnel }} </td>
                         </tr>
 
                     </tbody>
@@ -48,6 +48,42 @@
                                 Client</label>
                             <div class="col-sm-9">
                                 <input type="text" name="nom_patient" value="{{$audience->nom_patient}}" class="form-control" id="fname" />
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lname" class="col-sm-3 text-end control-label col-form-label">Qualité</label>
+                            <div class="col-sm-9">
+                                <select type="text" name="qualite" class="form-control" id="lname">
+                                    <option value="visiteur">Visiteur</option>
+                                    <option value="patient">Patient</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="lname" class="col-sm-3 text-end control-label col-form-label">Type
+                                d'audience</label>
+                            <div class="col-sm-9">
+                                <select type="text" name="audience_type"
+                                    class="form-control" >
+                                    <option value="Informations/Conseils">Visite d'information</option>
+                                    <option value="Suivi">Suivi médical individuel</option>
+                                    <option value="Chirurgie">Chirurgie</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="objet" class="col-sm-3 text-end control-label col-form-label">Objet</label>
+                            <div class="col-sm-9">
+                                <select type="text" class="form-control" name="objet" >
+                                    <option value="Médécine générale">Médécine générale</option>
+                                    <option value="Ophtamologie">Ophtamologie</option>
+                                    <option value="Dermatologie">Dermatologie</option>
+                                    <option value="Immunologie">Immunologie</option>
+                                    <option value="Neurologie">Neurologie</option>
+                                    <option value="Pneumologie">Pneumologie</option>
+                                    <option value="Cardiologie">Cardiologie</option>
+                                    <option value="Ondologie">Ondologie</option>
+                                </select>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -79,9 +115,9 @@
                             <button type="submit" class="btn btn-primary">
                                 Modifier
                             </button>
-                            <button type="submit" class="btn btn-danger">
+                            <a href="{{url('deleteAudience',$audience->id)}}" class="btn btn-danger">
                                 Supprimer
-                            </button>
+                            </a>
                             <br><br>
     
                         </div>

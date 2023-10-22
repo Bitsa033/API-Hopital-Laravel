@@ -11,7 +11,7 @@
             <div class="card-body">
                 <p class="login-box-msg">Connectez-vous pour démarrer votre session !</p>
 
-                <form autocomplete="off" action="{{ url('login') }}" method="POST">
+                <form autocomplete="off" action="{{ url('loginUser') }}" method="POST">
                     @csrf
                     <div class="input-group mb-3">
                         <input type="text" name="name" class="form-control" placeholder="Nom" required>
@@ -62,7 +62,7 @@
                 </form>
 
                 <p class="mb-0">
-                    <a href="/registerForm" class="text-center">Creer un compte</a>
+                    <a href="/createUser" class="text-center">Creer un compte</a>
                 </p>
             </div>
             <!-- /.card-body -->

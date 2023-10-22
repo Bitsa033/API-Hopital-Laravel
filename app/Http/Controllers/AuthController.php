@@ -7,61 +7,91 @@ use App\Http\Requests\StoreUsersRequest;
 use App\Http\Requests\UpdateUsersRequest;
 use App\Http\Resources\User as ResourcesUsers;
 use App\Models\User;
-use App\Trait\HttpResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    use HttpResponse;
 
     /**
-     * Print all data audiences.
+     * Print all data users.
      */
     public function printUsers()
     {
-        $users= User::all();
         if (!Auth::user()) {
-            # code...
             return redirect('/');
         }
+
+        $users= User::all();
         
-        return view('pages/printUsers',[
+        return view('pages.printUsers',[
             'users'=>$users,
             'user'=>'toto'
         ]);
     }
 
-    function loginForm()
+    /**
+     * Print one data user.
+     */
+    public function printUser($id)
     {
-        if (Auth::user()) {
-            # code...
-            return redirect('audiences');
+        if (!Auth::user()) {
+            return redirect('/');
         }
-        return view('pages/loginForm',[ ]);
+
+        $user= User::findOrfail($id);
+        
+        return view('pages.printUser',[
+            'users'=>$user,
+            'user'=>'toto'
+        ]);
     }
 
     /**
-     * Add a newly created resource in storage.
+     * Show the loginForm
      */
-    function registerForm() {
+    function loginForm()
+    {
+        if (Auth::user()) {
+            return redirect('audiences');
+        }
+
+        return view('pages.loginForm',[ ]);
+    }
+
+    /**
+     * Show the registerForm to Create a new user
+     */
+    function createUser() {
+        if (!Auth::user()) {
+            return redirect('audiences');
+        }
+
         return view('pages.registerForm');
     }
 
+    /**
+     * Show all data users
+     */
     function index()
     {
         if (!Auth::user()) {
-            # code...
+           
             return redirect('/');
         }
+
         $users = User::all();
-        return view('pages/users',[
+
+        return view('pages.users',[
             'users'=>$users
         ]);
     }
 
-    function store(StoreUsersRequest $request)
+    /**
+     * Store a newly created user in database
+     */
+    function storeUser(StoreUsersRequest $request)
     {
         $request->validated($request->all());
         User::create([
@@ -73,27 +103,29 @@ class AuthController extends Controller
             'password' => Hash::make($request->password)
         ]);
         
-        return redirect('user-add');
+        return redirect('createUser');
         
     }
 
     /**
-     * Display the specified animal resource.
+     * Show one data user.
      */
-    public function show($id)
-    {
-        if (!is_numeric($id)) {
-            return "Le paramètre id doit etre un nombre";
-        } else {
-            $user= User::find($id);
-            return new ResourcesUsers($user);
+    public function showUser($id) {
+        if (!Auth::user()) {
+            return redirect('/');
         }
+
+        $user= User::findOrfail($id);
         
+        return view('pages.showUser',['user'=>$user]);
     }
 
-    function update(UpdateUsersRequest $request,$id){
+    /**
+     * Update the specified user resource.
+     */
+    function updateUser(UpdateUsersRequest $request,$id){
         $request->validated($request->all());
-        $user= User::find($id);
+        $user= User::findOrfail($id);
         $user->update([
             "name"=>$request->name,
             'phone' => $request->phone,
@@ -101,46 +133,41 @@ class AuthController extends Controller
             "email"=>$request->email
         ]);
 
-        return $this->success([
-            'user'=>$user
-        ]);
+        return redirect('users')->with('success','Donnée modifiée avec sucès!');
         
     }
 
-    public function delete($id)
+    public function deleteUser($id)
     {
-        if (!is_numeric($id)) {
-            return "Le paramètre id doit etre un nombre";
-        } else {
-            $user=User::destroy($id);
-            return $this->success([
-                'user'=>$user
-                // 'token'=>$user->remo('API key token pour '.$user->name)->plainTextToken
-            ]);
+        if (!Auth::user()) {
+           
+            return redirect('users')->with('erreur',"Vous ne pouvez pas supprimerl'utilisateur connecté !");
         }
+        User::destroy($id);
+        return redirect('users')->with('success','Donnée supprimmée avec sucès!');
+        
         
     }
 
-    function login(Request $request)
+    function loginUser(Request $request)
     {
-        // dd('lo');
-        $credentials=["name"=>$request->name, "password"=>$request->password];
+        $credentials=["email"=>$request->email, "password"=>$request->password];
         if (!Auth::attempt($credentials)) {
-            return $this->erreur($credentials,'Nom ou mot de passe incorect',201);
+            return redirect('audiences')->with('erreur','email ou mot de passe incorects!');
         }
 
-         User::where("name",$request->name)->first();
-        //dd($user);
+        User::where("email",$request->email)->first();
+       
 
         return redirect('audiences');
 
     }
 
-    function logout()
-    {
-        $user = Auth::user();
+    // function logout()
+    // {
+    //     $user = Auth::user()->logout;
+    //     return new ResourcesUsers($user);
 
-        return $this->logoutUser($user,'Vous etes déconnecté',205);
-    }
+    // }
 
 }
