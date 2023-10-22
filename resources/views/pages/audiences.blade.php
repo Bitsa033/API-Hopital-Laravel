@@ -27,7 +27,7 @@
                     </form>
 
                 </div>
-                <a href="/createAudience" class="btn btn-primary"><i class="fa fa-plus"> Nouveau Ticket</i></a>
+                <a href="/createAudience" class="btn btn-primary"><i class="fa fa-plus"> Nouvelle audience</i></a>
                 <a href="/printAudiences" target="_blank" rel="noopener noreferrer" class="btn btn-info"><i
                         class="fa fa-print"> Imprimer tous les Tickets</i></a>
                 <br>
