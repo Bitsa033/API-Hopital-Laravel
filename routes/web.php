@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AudienceController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\EmployeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,6 +19,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('welcome', function () {
     return view('welcome');
 });
+
+//employés
+Route::get('employes', [EmployeController::class,'index']);
+Route::get('createEmploye', [EmployeController::class,'create']);
+Route::post('storeEmploye', [EmployeController::class,'store']);
+Route::get('showEmploye_{id}', [EmployeController::class,'show']);
+Route::post('updateEmploye/{id}', [EmployeController::class,'update']);
+
 //audiences
 Route::get('audiences', [AudienceController::class,'index']);
 Route::get('showAudience_{id}', [AudienceController::class,'showAudience']);
@@ -36,9 +45,8 @@ Route::get('showUser_{id}', [AuthController::class,'showUser']);
 Route::post('updateUser/{id}', [AuthController::class,'updateUser']);
 Route::get('deleteUser/{id}', [AuthController::class,'deleteUser']);
 Route::get('printUsers', [AuthController::class,'printUsers']);
-Route::get('createUser', [AuthController::class,'createUser']);
+Route::get('registerForm', [AuthController::class,'createUser']);
 Route::post('storeUser', [AuthController::class,'storeUser']);
-
 
 Auth::routes();
 

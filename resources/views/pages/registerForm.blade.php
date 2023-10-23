@@ -24,7 +24,7 @@
                 <input type="text" name="adress" class="form-control" placeholder="Adresse">
                 <div class="input-group-append">
                   <div class="input-group-text">
-                    <span class="fas fa-map"></span>
+                    <span class="fas fa-square"></span>
                   </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                 <input type="text" name="email" class="form-control" placeholder="Email">
                 <div class="input-group-append">
                   <div class="input-group-text">
-                    <span class="fas fa-mail"></span>
+                    <span class="fas fa-envelope"></span>
                   </div>
                 </div>
             </div>

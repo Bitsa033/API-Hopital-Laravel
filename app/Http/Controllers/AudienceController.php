@@ -105,14 +105,14 @@ class AudienceController extends Controller
                 'nom_personnel'=>$request->nom_personnel
             ]);
     
-            return redirect('createAudience');
+            return redirect('audiences')->with('success','Donnée modifiée avec sucès!');;
 
         } catch (\Throwable $th) {
             // throw $th;
             $erreur=$th->getMessage();
-            // dd($erreur);
+           
             return view('pages.audience',['erreur'=>$erreur]);
-            // die('érreur: '.$th->getMessage());
+            
         }
 
     }

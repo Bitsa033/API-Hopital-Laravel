@@ -11,7 +11,6 @@
 <table class="table table-stripped table-bordered" *ngIf="produits">
     <thead>
         <tr>
-            <th>ID</th>
             <th>Nom et prenom </th>
             <th>Teléphone</th>
             <th>Adresse</th>
@@ -23,7 +22,6 @@
     <tbody>
         @foreach ($users as $item)
             <tr >
-                <td class="text-center">{{ $item->id}}  </td>
                 <td class="text-center"> {{$item->name}} </td>
                 <td class="text-center"> {{$item->phone}} </td>
                 <td class="text-center"> {{$item->adress}} </td>

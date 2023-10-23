@@ -27,7 +27,7 @@ class AuthController extends Controller
         
         return view('pages.printUsers',[
             'users'=>$users,
-            'user'=>'toto'
+            
         ]);
     }
 
@@ -44,7 +44,7 @@ class AuthController extends Controller
         
         return view('pages.printUser',[
             'users'=>$user,
-            'user'=>'toto'
+            
         ]);
     }
 
@@ -64,10 +64,7 @@ class AuthController extends Controller
      * Show the registerForm to Create a new user
      */
     function createUser() {
-        if (!Auth::user()) {
-            return redirect('audiences');
-        }
-
+        
         return view('pages.registerForm');
     }
 
@@ -103,7 +100,7 @@ class AuthController extends Controller
             'password' => Hash::make($request->password)
         ]);
         
-        return redirect('createUser');
+        return redirect('users')->with('success','Donnée modifiée avec sucès!');;
         
     }
 

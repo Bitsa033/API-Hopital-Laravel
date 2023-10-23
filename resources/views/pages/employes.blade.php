@@ -19,9 +19,9 @@
                         <input class="form-control me-2" type="text" placeholder="User ID" aria-label="test">
                         <button class="btn btn-outline-danger" type="submit"><i class="fa fa-trash"></i></button>
                     </form>
-                    <a href="/registerForm" class="btn btn-primary"><i class="fa fa-plus"> Nouveau User</i></a>
+                    <a href="/createEmploye" class="btn btn-primary"><i class="fa fa-plus"> Nouveau Employé</i></a>
                     
-                    <a href="/printUsers" target="_blank" rel="noopener noreferrer" class="btn btn-info"><i class="fa fa-print"> Imprimer tous les Users</i></a>
+                    <a href="/printEmployes" target="_blank" rel="noopener noreferrer" class="btn btn-info"><i class="fa fa-print"> Imprimer tous les Employés</i></a>
                 </div>
                 <br>
                 
@@ -29,18 +29,18 @@
                     <thead>
                         <tr>
                             <th>Nom et prenom </th>
-                            <th>Type d'utilisateur</th>
+                            <th>Fonction</th>
                             <th>Option</th>
                             
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($users as $item)
+                        @foreach ($employes as $item)
                             <tr >
-                                <td class="text-center"> {{$item->name}} </td>
-                                 <td class="text-center"> {{$item->type}} </td>
+                                <td class="text-center"> {{$item->nom}} </td>
+                                 <td class="text-center"> {{$item->fonction}} </td>
                                  <td class="text-center">
-                                    <a href="/showUser_{{ $item->id }}" class="btn btn-primary">Détails</a>
+                                    <a href="/showEmploye_{{ $item->id }}" class="btn btn-primary">Détails</a>
                                 </td>
                             </tr>
                         @endforeach

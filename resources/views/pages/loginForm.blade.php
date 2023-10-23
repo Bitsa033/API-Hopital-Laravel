@@ -62,7 +62,7 @@
                 </form>
 
                 <p class="mb-0">
-                    <a href="/createUser" class="text-center">Creer un compte</a>
+                    <a href="/registerForm" class="text-center">Creer un compte</a>
                 </p>
             </div>
             <!-- /.card-body -->

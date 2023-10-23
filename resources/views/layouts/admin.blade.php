@@ -127,13 +127,13 @@
                     </li>
 
                     <li class="nav-item">
-                        <a href="/users" class="nav-link">
+                        <a href="/employes" class="nav-link">
                             <i class="fa fa-users"></i> Employés
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a href="/users" class="nav-link">
+                        <a href="/patients" class="nav-link">
                             <i class="fa fa-users"></i> Patients
                         </a>
                     </li>
