@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Employe;
 use App\Http\Requests\StoreEmployeRequest;
 use App\Http\Requests\UpdateEmployeRequest;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class EmployeController extends Controller
@@ -82,10 +83,11 @@ class EmployeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateEmployeRequest $request, $id)
+    public function destroyl(Request $request, $id)
     {
-        $request->validated($request->all());
+        // dd('delete the employe');
         $employe= Employe::findOrfail($id);
+        // dd($employe);
         $employe->update([
             'nom' => $request->nom,
             'email' => $request->email,
@@ -99,8 +101,18 @@ class EmployeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Employe $employe)
+    public function destroy(Request $request, $id)
     {
-        dd('delete the employe');
+        // dd('delete the employe');
+        $employe= Employe::findOrfail($id);
+        // dd($employe);
+        $employe->update([
+            'nom' => $request->nom,
+            'email' => $request->email,
+            'telephone' => $request->telephone,
+            'adresse' => $request->adresse,
+            'fonction' => $request->fonction,
+        ]);
+        return redirect('employes')->with('success','Donnée modifiée avec sucès!');;
     }
 }

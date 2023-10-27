@@ -35,7 +35,7 @@
                 </table>
                 <br>
                
-                <form autocomplete="off" action="{{url('updateEmploye',$employe->id)}}" method="POST" class="form-horizontal card card-body">
+                <form autocomplete="off" action="{{url('destroyl',$employe->id)}}" method="POST" class="form-horizontal card card-body">
                     @csrf
                     <h4 class="card-title">Mise à jour</h4>
                     <div class="card-body">
@@ -78,7 +78,7 @@
                             <button type="submit" class="btn btn-primary">
                                 Modifier
                             </button>
-                            <a href="{{url('deleteEmploye',$employe->id)}}" class="btn btn-danger">
+                            <a href="{{url('delete',$employe->id)}}" class="btn btn-danger">
                                 Supprimer
                             </a>
                             <br><br>

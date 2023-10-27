@@ -25,7 +25,8 @@ Route::get('employes', [EmployeController::class,'index']);
 Route::get('createEmploye', [EmployeController::class,'create']);
 Route::post('storeEmploye', [EmployeController::class,'store']);
 Route::get('showEmploye_{id}', [EmployeController::class,'show']);
-Route::post('updateEmploye/{id}', [EmployeController::class,'update']);
+Route::post('destroyl/{id}', [EmployeController::class,'destroyl']);
+Route::get('delete/{id}', [EmployeController::class,'destroy']);
 
 //audiences
 Route::get('audiences', [AudienceController::class,'index']);
