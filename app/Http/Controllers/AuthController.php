@@ -90,6 +90,7 @@ class AuthController extends Controller
      */
     function storeUser(StoreUsersRequest $request)
     {
+        
         $request->validated($request->all());
         User::create([
             'name' => $request->name,
@@ -113,8 +114,6 @@ class AuthController extends Controller
         }
 
         $user= User::findOrfail($id);
-        $pwd=Hash::check('plain-text',$user['password']);
-        dd($pwd);
         return view('pages.showUser',['user'=>$user]);
     }
 
