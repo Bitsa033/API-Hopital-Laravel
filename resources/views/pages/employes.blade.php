@@ -7,7 +7,7 @@
                     <div class="alert alert-success">{{ $message }}</div>
                 @endif
             </h5>
-            <div class="card-body">
+            <div class=" card card-body offset-1">
                 <div class="form-inline">
                     <!-- rechercher un élément dans la table-->
                     <form class="d-flex ">

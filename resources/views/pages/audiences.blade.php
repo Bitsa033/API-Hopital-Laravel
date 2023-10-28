@@ -13,7 +13,7 @@
                     <div class="alert alert-success">{{ $message }}</div>
                 @endif
             </h5>
-            <div class="card-body">
+            <div class=" card card-body">
                 <div class="form-inline">
                     <!-- rechercher un élément dans la table-->
                     <form class="d-flex">
@@ -27,9 +27,18 @@
                     </form>
 
                 </div>
-                <a href="/createAudience" class="btn btn-primary"><i class="fa fa-plus"> Nouvelle audience</i></a>
-                <a href="/printAudiences" target="_blank" rel="noopener noreferrer" class="btn btn-info"><i
-                        class="fa fa-print"> Imprimer tous les Tickets</i></a>
+                <div class="form-inline">
+                    <div class="d-flex">
+                        <a href="/createAudience" class="btn btn-primary">
+                            <i class="fa fa-plus"> Nouvelle audience</i>
+                        </a>
+                    </div>
+                    <div class="d-flex">
+                        <a href="/printAudiences" target="_blank" rel="noopener noreferrer" class=" btn btn-info"><i
+                            class="fa fa-print"> Imprimer tous les Tickets</i>
+                        </a>
+                    </div>
+                </div>
                 <br>
 
                 <table class="table table-stripped table-bordered" *ngIf="produits">
