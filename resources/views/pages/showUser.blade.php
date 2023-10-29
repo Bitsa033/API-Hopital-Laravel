@@ -7,12 +7,13 @@
             </div>
         @endif
 
-        <div class="col-md-12" ng-app="">
-            <h5 class="container">Utilisateur n°{{ $user->id }}: {{ $user->name }} <a href="/printUser" target="_blank" rel="noopener noreferrer"  class="btn btn-info"><i class="fa fa-print"> Imprimer</i></a></h5>
+        <div class="col-md-12 card card-body" ng-app="">
+            <h5 class="container">Utilisateur n°{{ $user->id }}: {{ $user->name }} <a href="/printUser" target="_blank"
+                    rel="noopener noreferrer" class="btn btn-info"><i class="fa fa-print"> Imprimer</i></a></h5>
             <div class="card-body">
 
                 <table class="table table-stripped table-bordered" *ngIf="produits">
-                   
+
                     <tbody>
                         <tr>
                             <th>Email</th>
@@ -34,59 +35,120 @@
                     </tbody>
                 </table>
                 <br>
-               
-                <form autocomplete="off" action="{{url('updateUser',$user->id)}}" method="POST" class="form-horizontal card card-body">
+
+                <form autocomplete="off" action="{{ url('updateUser', $user->id) }}" method="POST"
+                    class="form-horizontal card card-body">
                     @csrf
                     <h4 class="card-title">Mise à jour</h4>
                     <div class="card-body">
-                        <div class="form-group row">
-                            <label for="fname" class="col-sm-3 text-end control-label col-form-label">Nom
-                                Nom</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="name" value="{{$user->name}}" class="form-control" id="fname" />
+                        <div class="row mb-3">
+                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nom') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $user->name }}" required autocomplete="name" autofocus>
+
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="lname" class="col-sm-3 text-end control-label col-form-label">Email</label>
-                            <div class="col-sm-9">
-                                <input type="text" name="email" value="{{$user->email}}" class="form-control" id="fname" />
+
+                        <div class="row mb-3">
+                            <label for="phone" class="col-md-4 col-form-label text-md-end">{{ __('Téléphone') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="phone" type="text" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $user->phone }}" required autocomplete="phone" autofocus>
+
+                                @error('phone')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="lname" class="col-sm-3 text-end control-label col-form-label">Téléphone</label>
-                            <input type="text" name="phone" value="{{$user->phone}}" class="form-control" id="fname" />
-                        </div>
-                        <div class="form-group row">
-                            <label for="objet" class="col-sm-3 text-end control-label col-form-label">Adresse</label>
-                            <input type="text" name="adress" value="{{$user->adress}}" class="form-control" id="fname" />
-                        </div>
-                        <div class="form-group row">
-                            <label for="cono1" class="col-sm-3 text-end control-label col-form-label">Mot de passe</label>
-                            <div class="col-sm-9">
-                                {{-- <input class="form-control" type="password" name="password" value="{{ $user->password }}"> --}}
+
+                        <div class="row mb-3">
+                            <label for="adress" class="col-md-4 col-form-label text-md-end">{{ __('Adresse') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="adress" type="text" class="form-control @error('adress') is-invalid @enderror" name="adress" value="{{ $user->adress }}" required autocomplete="adress" autofocus>
+
+                                @error('adress')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
-                        <div class="form-group row">
-                            <label for="cono1" class="col-sm-3 text-end control-label col-form-label">Statut</label>
-                            <div class="col-sm-9">
-                                <select type="text" class="form-control" name="type">
-                                    <option value="Sécretaire">Sécretaire</option>
-                                    <option value="Directeur">Directeur</option>
+
+                        <div class="row mb-3">
+                            <label for="type" class="col-md-4 col-form-label text-md-end">{{ __('Profil') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="type" type="text" class="form-control @error('type') is-invalid @enderror" name="type" value="{{ $user->type }}" required autocomplete="type" autofocus>
+                                {{-- <select type="text" class="form-control" name="type">
+                                    <option value="Employé">Employé</option>
+                                    <option value="Patient">Patient</option>
                                     <option value="Administrateur">Administrateur</option>
-                                </select>
+                                </select> --}}
+
+                                @error('type')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
                             </div>
                         </div>
+
+                        <div class="row mb-3">
+                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $user->email }}" required autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Mot de passe') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirmez le Mot de passe') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+                            </div>
+                        </div>
+
                     </div>
                     <div class="border-top">
                         <div class="card-body">
                             <button type="submit" class="btn btn-primary">
                                 Modifier
                             </button>
-                            <a href="{{url('deleteUser',$user->id)}}" class="btn btn-danger">
+                            <a href="{{ url('deleteUser', $user->id) }}" class="btn btn-danger">
                                 Supprimer
                             </a>
                             <br><br>
-    
+
                         </div>
                     </div>
                 </form>

@@ -23,7 +23,7 @@ class UpdateUsersRequest extends FormRequest
     {
         return [
             'name'=>'required|string',
-            'phone'=>'required|integer|min:9',
+            'phone'=>'required|string|min:9|unique:users',
             'adress'=>'required|string|min:6',
             'email'=>'required|email',
         ];

@@ -11,16 +11,16 @@
             <div class="card-body">
                 <p class="login-box-msg">Connectez-vous pour démarrer votre session !</p>
 
-                <form autocomplete="off" action="{{ url('loginUser') }}" method="POST">
+                <form autocomplete="off" action="{{ url('login') }}" method="POST">
                     @csrf
-                    <div class="input-group mb-3">
+                    {{-- <div class="input-group mb-3">
                         <input type="text" name="name" class="form-control" placeholder="Nom" required>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
                             </div>
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="input-group mb-3">
                         <input type="text" name="email" class="form-control @error('email') is-invalid @enderror"
