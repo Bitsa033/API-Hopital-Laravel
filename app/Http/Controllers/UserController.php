@@ -41,8 +41,8 @@ class UserController extends Controller
 
         $user= User::findOrfail($id);
         $user_email=$user->email;
-        $password=DB::table('user_keys')->where('email', $user_email)->get();
-        // dd($password);
+        $password=DB::table('user_keys')->where('email', $user_email)->first(['password']);
+        // dd($password->password);
         return view('pages.showUser',['user'=>$user,'password'=>$password]);
     }
 

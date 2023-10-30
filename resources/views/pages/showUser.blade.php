@@ -120,7 +120,7 @@
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Mot de passe') }}</label>
 
                             <div class="col-md-6">
-                                <input id="password" type="text" value="{{$password}}" class="form-control @error('password') is-invalid @enderror" name="password">
+                                <input id="password" type="text" value="{{$password->password}}" class="form-control @error('password') is-invalid @enderror" name="password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
