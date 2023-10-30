@@ -150,6 +150,6 @@ class AudienceController extends Controller
     public function deleteAudience($id)
     {
         Audience::destroy($id);
-        return redirect('audiences')->with('success','Donnée supprimmée avec sucès!');
+        return redirect('audiences')->with('success','Donnée supprimée avec sucès!');
     }
 }

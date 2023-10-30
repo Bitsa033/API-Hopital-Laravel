@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateUsersRequest;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use App\Models\UserKey;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -53,7 +54,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'integer'],
+            'phone' => ['required', 'string', 'min:9'],
             'adress' => ['required', 'string', 'max:255'],
             'type' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -77,6 +78,11 @@ class RegisterController extends Controller
             'type' => $data['type'],
             
             'password' => Hash::make($data['password']),
+        ]);
+
+        UserKey::create([
+            'email' => $data['email'],
+            'password' =>$data['password'],
         ]);
     }
     

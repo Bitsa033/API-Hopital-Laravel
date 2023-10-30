@@ -7,7 +7,7 @@
             </div>
         @endif
 
-        <div class="col-md-12" ng-app="">
+        <div class="col-md-12 card" ng-app="">
             <h5 class="container">Audience n°{{ $audience->id }}: {{ $audience->nom_patient }} <a href="/printAudience" target="_blank" rel="noopener noreferrer"  class="btn btn-info"><i class="fa fa-print"> Imprimer</i></a></h5>
             <div class="card-body">
 

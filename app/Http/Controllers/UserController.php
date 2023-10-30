@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUsersRequest;
 use App\Models\User;
+use App\Models\UserKey;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller
 {
@@ -20,9 +22,12 @@ class UserController extends Controller
         }
 
         $users = User::all();
+        // $user= User::findOrfail(1);
+        // dd($user);
 
         return view('pages.users',[
-            'users'=>$users
+            'users'=>$users,
+            // 'user'=>$user
         ]);
     }
 
@@ -35,7 +40,10 @@ class UserController extends Controller
         }
 
         $user= User::findOrfail($id);
-        return view('pages.showUser',['user'=>$user]);
+        $user_email=$user->email;
+        $password=DB::table('user_keys')->where('email', $user_email)->get();
+        // dd($password);
+        return view('pages.showUser',['user'=>$user,'password'=>$password]);
     }
 
     /**

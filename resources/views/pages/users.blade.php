@@ -14,15 +14,9 @@
                         <input class="form-control me-2" type="test" placeholder="Mot clé" aria-label="text">
                         <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
                     </form>
-                    <!-- supprimer un élément-->
-                    <form class="d-flex offset-1">
-                        <input class="form-control me-2" type="text" placeholder="User ID" aria-label="test">
-                        <button class="btn btn-outline-danger" type="submit"><i class="fa fa-trash"></i></button>
-                    </form>
-                    <a href="/registerForm" class="btn btn-primary"><i class="fa fa-plus"> Nouveau User</i></a>
                     
-                    <a href="/printUsers" target="_blank" rel="noopener noreferrer" class="btn btn-info"><i class="fa fa-print"> Imprimer tous les Users</i></a>
                 </div>
+                <a href="/printUsers" target="_blank" rel="noopener noreferrer" class="btn btn-info"><i class="fa fa-print"> Imprimer la liste</i></a>
                 <br>
                 
                 <table class="table table-stripped table-bordered">
@@ -40,7 +34,11 @@
                                 <td class="text-center"> {{$item->name}} </td>
                                  <td class="text-center"> {{$item->type}} </td>
                                  <td class="text-center">
-                                    <a href="/showUser_{{ $item->id }}" class="btn btn-primary">Détails</a>
+                                    @if ($item->id == Auth::user()->id)
+                                        <a href="/showUser_{{ $item->id }}" class="btn btn-primary"><i class="fa fa-lock-open"></i> Profil</a> 
+                                    @else
+                                    <a class="btn btn-dark"><i class="fa fa-lock"></i> Bloqué</a> 
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

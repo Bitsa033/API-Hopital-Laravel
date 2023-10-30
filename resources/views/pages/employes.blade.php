@@ -14,14 +14,11 @@
                         <input class="form-control me-2" type="test" placeholder="Mot clé" aria-label="text">
                         <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
                     </form>
-                    <!-- supprimer un élément-->
-                    <form class="d-flex offset-1">
-                        <input class="form-control me-2" type="text" placeholder="User ID" aria-label="test">
-                        <button class="btn btn-outline-danger" type="submit"><i class="fa fa-trash"></i></button>
-                    </form>
-                    <a href="/createEmploye" class="btn btn-primary"><i class="fa fa-plus"> Nouveau Employé</i></a>
                     
-                    <a href="/printEmployes" target="_blank" rel="noopener noreferrer" class="btn btn-info"><i class="fa fa-print"> Imprimer tous les Employés</i></a>
+                    <div class="flex"> 
+                        <a href="/createEmploye" class="btn btn-primary"><i class="fa fa-plus"> Nouvel Employé</i></a>
+                        <a href="/printEmployes" target="_blank" rel="noopener noreferrer" class="btn btn-info"><i class="fa fa-print"> Imprimer la liste</i></a>
+                    </div>
                 </div>
                 <br>
                 
@@ -40,7 +37,7 @@
                                 <td class="text-center"> {{$item->nom}} </td>
                                  <td class="text-center"> {{$item->fonction}} </td>
                                  <td class="text-center">
-                                    <a href="/showEmploye_{{ $item->id }}" class="btn btn-primary">Détails</a>
+                                    <a  href="/showEmploye_{{ $item->id }}" class="btn btn-primary"><i class="fa fa-lock-open"></i> Profil</a> 
                                 </td>
                             </tr>
                         @endforeach
