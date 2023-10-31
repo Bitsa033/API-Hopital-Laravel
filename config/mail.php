@@ -52,6 +52,9 @@ return [
 
         'mailgun' => [
             'transport' => 'mailgun',
+            'domain' => env('MAILGUN_DOMAIN'),
+            'secret' => env('MAILGUN_SECRET'),
+            'endpoint' => env('MAILGUN_ENDPOINT', 'api.eu.mailgun.net'),
             // 'client' => [
             //     'timeout' => 5,
             // ],
@@ -59,6 +62,7 @@ return [
 
         'postmark' => [
             'transport' => 'postmark',
+            'token' => env('POSTMARK_TOKEN'),
             // 'client' => [
             //     'timeout' => 5,
             // ],
@@ -99,7 +103,7 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
+        'address' => env('MAIL_FROM_ADDRESS', 'bitsapascal033@gmail.com'),
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
