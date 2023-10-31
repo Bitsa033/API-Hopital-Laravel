@@ -70,6 +70,12 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+        
+        UserKey::create([
+            'email' => $data['email'],
+            'password' =>$data['password'],
+        ]);
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -78,11 +84,6 @@ class RegisterController extends Controller
             'type' => $data['type'],
             
             'password' => Hash::make($data['password']),
-        ]);
-
-        UserKey::create([
-            'email' => $data['email'],
-            'password' =>$data['password'],
         ]);
     }
     
