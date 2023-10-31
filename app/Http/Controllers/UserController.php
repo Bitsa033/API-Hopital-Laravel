@@ -107,13 +107,16 @@ class UserController extends Controller
 
         $request->validated($request->all());
         $user= User::findOrfail($id);
+        $user_email=$user->email;
+        $password=DB::table('user_keys')->where('email', $user_email)->first(['password']);
        
         $user->update([
             "name"=>$request->name,
             'phone' => $request->phone,
             'adress' => $request->adress,
             "email"=>$request->email,
-            "type"=>$request->type
+            "type"=>$request->type,
+            "password"=>$request->password
         ]);
 
         return redirect('users')->with('success','Donnée modifiée avec sucès!');

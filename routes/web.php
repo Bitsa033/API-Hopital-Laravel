@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AudienceController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,22 @@ Route::get('welcome', function () {
     return view('welcome');
 });
 
+
+// users
+Route::get('/', [UserController::class,'login']);
+Route::get('registerForm', [UserController::class,'register']);
+Route::get('users', [UserController::class,'index']);
+Route::get('showUser_{id}', [UserController::class,'show']);
+Route::post('updateUser/{id}', [UserController::class,'update']);
+Route::get('deleteUser/{id}', [UserController::class,'delete']);
+Route::get('printUsers', [UserController::class,'printUsers']);
+Route::get('printUser', [UserController::class,'printUser']);
+Route::get('resetPasswordForm', [ResetPasswordController::class,'resetPasswordForm']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 //employés
 Route::get('employes', [EmployeController::class,'index']);
 Route::get('createEmploye', [EmployeController::class,'create']);
@@ -38,17 +55,3 @@ Route::get('printAudiences', [AudienceController::class,'printAudiences']);
 Route::get('printAudience', [AudienceController::class,'printAudience']);
 Route::get('createAudience', [AudienceController::class,'createAudience']);
 Route::post('storeAudience', [AudienceController::class,'storeAudience']);
-
-// users
-Route::get('/', [UserController::class,'login']);
-Route::get('users', [UserController::class,'index']);
-Route::get('showUser_{id}', [UserController::class,'show']);
-Route::post('updateUser/{id}', [UserController::class,'update']);
-Route::get('deleteUser/{id}', [UserController::class,'delete']);
-Route::get('printUsers', [UserController::class,'printUsers']);
-Route::get('printUser', [UserController::class,'printUser']);
-Route::get('registerForm', [UserController::class,'register']);
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

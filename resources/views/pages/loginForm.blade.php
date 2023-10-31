@@ -58,11 +58,17 @@
                             <button type="submit" class="btn btn-primary btn-block">Se connecter</button>
                         </div>
                         <!-- /.col -->
+                        <!-- /.col -->
+                        <div class="col-6">
+                            <a href="/registerForm" class="text-center btn btn-primary">Creer un compte</a>
+                            
+                        </div>
+                        <!-- /.col -->
                     </div>
                 </form>
 
-                <p class="mb-0">
-                    <a href="/registerForm" class="text-center">Creer un compte</a>
+                <p class="mb-0">                
+                    <a href="/resetPasswordForm" class="text-center">Mot de passe oublié</a>
                 </p>
             </div>
             <!-- /.card-body -->
