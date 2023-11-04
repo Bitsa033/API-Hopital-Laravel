@@ -10,7 +10,11 @@
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Connectez-vous pour démarrer votre session !</p>
-
+                <h5 class="container">
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">{{ $message }}</div>
+                    @endif
+                </h5>
                 <form autocomplete="off" action="{{ url('login') }}" method="POST">
                     @csrf
                     {{-- <div class="input-group mb-3">

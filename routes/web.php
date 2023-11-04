@@ -33,6 +33,7 @@ Route::get('deleteUser/{id}', [UserController::class,'delete']);
 Route::get('printUsers', [UserController::class,'printUsers']);
 Route::get('printUser', [UserController::class,'printUser']);
 Route::get('resetPasswordForm', [ResetPasswordController::class,'resetPasswordForm']);
+Route::post('resetPassword', [ResetPasswordController::class,'resetPassword']);
 
 Auth::routes();
 
