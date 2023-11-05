@@ -5,7 +5,11 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\EmployeController;
 use App\Http\Controllers\UserController;
+use App\Mail\MailableName;
 use Illuminate\Support\Facades\Route;
+
+use App\Mail\MyTestEmail;
+use Illuminate\Support\Facades\Mail;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +21,14 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/testroute', function() {
+    $name = "Funny Coder";
+
+    // The email sending is done using the to method on the Mail facade
+    Mail::to('bitsapascal033@gmail.com')->send(new MailableName($name));
+});
+
 
 Route::get('welcome', function () {
     return view('welcome');

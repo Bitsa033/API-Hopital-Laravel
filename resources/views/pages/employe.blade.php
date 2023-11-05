@@ -20,7 +20,7 @@
                         <label for="fname" class="col-sm-3 text-end control-label col-form-label">Nom
                             Employé</label>
                         <div class="col-sm-9">
-                            <input type="text" name="nom" class="form-control  @error('nom') is-invalid @enderror"
+                            <input type="text" value="{{ old('nom') }}" name="nom" class="form-control  @error('nom') is-invalid @enderror"
                                 id="fname" />
                             @error('nom')
                                 <span class="invalid-feedback" role="alert">
@@ -32,7 +32,7 @@
                     <div class="form-group row">
                         <label for="lname" class="col-sm-3 text-end control-label col-form-label">Email</label>
                         <div class="col-sm-9">
-                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror"
+                            <input type="email" name="email" value="{{ old('email') }}" class="form-control @error('email') is-invalid @enderror"
                                 id="fname" />
                             @error('email')
                                 <span class="invalid-feedback" role="alert">
@@ -45,7 +45,7 @@
                         <label for="lname" class="col-sm-3 text-end control-label col-form-label">Téléphone
                         </label>
                         <div class="col-sm-9">
-                            <input type="text" name="telephone"
+                            <input type="text" name="telephone" value="{{ old('telephone') }}"
                                 class="form-control @error('telephone') is-invalid @enderror" id="fname" />
                             @error('telephone')
                                 <span class="invalid-feedback" role="alert">
@@ -57,7 +57,7 @@
                     <div class="form-group row">
                         <label for="adresse" class="col-sm-3 text-end control-label col-form-label">Adresse</label>
                         <div class="col-sm-9">
-                            <input type="text" name="adresse" class="form-control @error('adresse') is-invalid @enderror"
+                            <input type="text" name="adresse" value="{{ old('adresse') }}" class="form-control @error('adresse') is-invalid @enderror"
                                 id="fname" />
                             @error('adresse')
                                 <span class="invalid-feedback" role="alert">
@@ -69,7 +69,7 @@
                     <div class="form-group row">
                         <label for="cono1" class="col-sm-3 text-end control-label col-form-label">Fonction</label>
                         <div class="col-sm-9">
-                            <input type="text" name="fonction"
+                            <input type="text" name="fonction" value="{{ old('fonction') }}"
                                 class="form-control @error('fonction') is-invalid @enderror" id="fname" />
                             @error('fonction')
                                 <span class="invalid-feedback" role="alert">
