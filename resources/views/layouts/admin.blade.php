@@ -78,6 +78,9 @@
                         {{ __('Logout') }}>
                         {{ Auth::user()->name }}
                     </a>
+                    <a class="info">
+                        {{ Auth::user()->type }}
+                    </a>
 
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                         @csrf
@@ -110,7 +113,7 @@
 
                     <li class="nav-item">
                         <a href="/users" class="nav-link">
-                            <i class="fa fa-users"></i> Utilisateurs
+                            <i class="fa fa-users"></i> Utilisateur
                         </a>
                     </li>
 

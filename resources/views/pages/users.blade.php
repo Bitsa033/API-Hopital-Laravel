@@ -29,19 +29,18 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($users as $item)
-                            <tr >
-                                <td class="text-center"> {{$item->name}} </td>
-                                 <td class="text-center"> {{$item->type}} </td>
-                                 <td class="text-center">
-                                    @if ($item->id == Auth::user()->id)
-                                        <a href="/showUser_{{ $item->id }}" class="btn btn-primary"><i class="fa fa-lock-open"></i> Profil</a> 
-                                    @else
-                                    <a class="btn btn-dark"><i class="fa fa-lock"></i> Bloqué</a> 
-                                    @endif
-                                </td>
-                            </tr>
-                        @endforeach
+                        <tr >
+                           <td>
+                                {{$user->name}}
+                            </td> 
+                            <td>
+                                {{$user->type}}
+                            </td> 
+                            <td>
+                                <a href="/showUser_{{$user->id}}" class="btn btn-info"><i class="fa fa-lock-open"></i> Profil</a>
+                            </td> 
+                        </tr>
+                        
                         
                     </tbody>
                 </table>

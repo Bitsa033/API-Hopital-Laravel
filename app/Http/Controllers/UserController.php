@@ -21,12 +21,12 @@ class UserController extends Controller
             return redirect('/');
         }
 
-        $users = User::all();
+        $user= Auth::user();
         // $user= User::findOrfail(1);
         // dd($user);
 
         return view('pages.users',[
-            'users'=>$users,
+            'user'=>$user,
             // 'user'=>$user
         ]);
     }
@@ -66,13 +66,13 @@ class UserController extends Controller
     /**
      * Print one data user.
      */
-    public function printUser($id)
+    public function printUser()
     {
         if (!Auth::user()) {
             return redirect('/');
         }
 
-        $user= User::findOrfail($id);
+        $user= Auth::user();
         
         return view('pages.printUser',[
             'users'=>$user,
@@ -107,9 +107,15 @@ class UserController extends Controller
 
         $request->validated($request->all());
         $user= User::findOrfail($id);
+        $user_key= UserKey::findOrfail($id);
         $user_email=$user->email;
         $password=DB::table('user_keys')->where('email', $user_email)->first(['password']);
        
+        $user_key->update([
+            "email"=>$request->email,
+            "password"=>$request->password
+        ]);
+        
         $user->update([
             "name"=>$request->name,
             'phone' => $request->phone,
