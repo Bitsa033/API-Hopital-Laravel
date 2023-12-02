@@ -8,34 +8,7 @@
         @endif
 
         <div class="col-md-12 card card-body" ng-app="">
-            <h5 class="container">Utilisateur n°{{ $user->id }}: {{ $user->name }} <a href="/printUser" target="_blank"
-                    rel="noopener noreferrer" class="btn btn-info"><i class="fa fa-print"> Imprimer</i></a></h5>
-            <div class="card-body">
-
-                <table class="table table-stripped table-bordered" *ngIf="produits">
-
-                    <tbody>
-                        <tr>
-                            <th>Email</th>
-                            <td class="text-center"> {{ $user->email }} </td>
-                        </tr>
-                        <tr>
-                            <th>Téléphone</th>
-                            <td class="text-center"> {{ $user->phone }} </td>
-                        </tr>
-                        <tr>
-                            <th>Adresse</th>
-                            <td class="text-center"> {{ $user->adress }} </td>
-                        </tr>
-                        <tr>
-                            <th>Statut</th>
-                            <td class="text-center"> {{ $user->type }} </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-                <br>
-
+            
                 <form autocomplete="off" action="{{ url('updateUser', $user->id) }}" method="POST"
                     class="form-horizontal card card-body">
                     @csrf
@@ -147,6 +120,8 @@
                             <a href="{{ url('deleteUser', $user->id) }}" class="btn btn-danger">
                                 Supprimer
                             </a>
+                            <a href="/printUser" target="_blank"
+                            class="btn btn-info"><i class="fa fa-print"> Imprimer</i></a>
                             <br><br>
 
                         </div>

@@ -8,12 +8,9 @@
         @endif
 
         <div class="col-md-12 card" ng-app="">
-            <h5 class="container">Employe n°{{ $employe->id }}: {{ $employe->nom }} <a href="/printUser" target="_blank" rel="noopener noreferrer"  class="btn btn-info"><i class="fa fa-print"> Imprimer</i></a></h5>
+           
             <div class="card-body">
 
-                
-                <br>
-               
                 <form autocomplete="off" action="{{url('destroyl',$employe->id)}}" method="POST" class="form-horizontal card card-body">
                     @csrf
                     <h4 class="card-title">Mise à jour</h4>
@@ -60,6 +57,7 @@
                             <a href="{{url('delete',$employe->id)}}" class="btn btn-danger">
                                 Supprimer
                             </a>
+                            <a href="/printUser" target="_blank" class="btn btn-info"><i class="fa fa-print"> Imprimer</i></a>
                             <br><br>
     
                         </div>

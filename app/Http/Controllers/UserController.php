@@ -43,7 +43,7 @@ class UserController extends Controller
         $user_email=$user->email;
         $password=DB::table('user_keys')->where('email', $user_email)->first(['password']);
         // dd($password->password);
-        return view('users.show',['user'=>$user,'password'=>$password]);
+        return view('users.edit',['user'=>$user,'password'=>$password]);
     }
 
     /**
