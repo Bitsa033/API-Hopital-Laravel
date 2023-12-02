@@ -25,7 +25,7 @@ class UserController extends Controller
         // $user= User::findOrfail(1);
         // dd($user);
 
-        return view('pages.users',[
+        return view('users.show',[
             'user'=>$user,
             // 'user'=>$user
         ]);
@@ -43,7 +43,7 @@ class UserController extends Controller
         $user_email=$user->email;
         $password=DB::table('user_keys')->where('email', $user_email)->first(['password']);
         // dd($password->password);
-        return view('pages.showUser',['user'=>$user,'password'=>$password]);
+        return view('users.show',['user'=>$user,'password'=>$password]);
     }
 
     /**
@@ -57,7 +57,7 @@ class UserController extends Controller
 
         $users= User::all();
         
-        return view('pages.printUsers',[
+        return view('printer.users',[
             'users'=>$users,
             
         ]);
@@ -74,7 +74,7 @@ class UserController extends Controller
 
         $user= Auth::user();
         
-        return view('pages.printUser',[
+        return view('printer.user',[
             'users'=>$user,
             
         ]);
@@ -89,7 +89,7 @@ class UserController extends Controller
             return redirect('audiences');
         }
 
-        return view('pages.loginForm',[ ]);
+        return view('auth.loginForm',[ ]);
     }
 
     /**
@@ -97,7 +97,7 @@ class UserController extends Controller
      */
     function register() {
         
-        return view('pages.registerForm');
+        return view('auth.registerForm');
     }
 
     /**

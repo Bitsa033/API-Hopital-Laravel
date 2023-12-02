@@ -4,6 +4,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+            <h5 class="container">
+                @if ($message = Session::get('email_not_exist'))
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @endif
+            </h5>
             <div class="card">
                 <div class="card-header">{{ __('Reset Password') }}</div>
 
@@ -17,6 +22,7 @@
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
+                                
                                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="off" autofocus>
 
                                 @error('email')

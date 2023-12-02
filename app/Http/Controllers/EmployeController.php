@@ -22,7 +22,7 @@ class EmployeController extends Controller
 
         $employes = Employe::all();
 
-        return view('pages.employes',[
+        return view('employes.show',[
             'employes'=>$employes
         ]);
     }
@@ -37,7 +37,7 @@ class EmployeController extends Controller
             return redirect('/');
         }
 
-        return view('pages.employe',['erreur'=>'']);
+        return view('employes.new',['erreur'=>'']);
     }
 
     /**
@@ -61,7 +61,7 @@ class EmployeController extends Controller
             //throw $th;
             $erreur=$th->getMessage();
            
-            return view('pages.employe',['erreur'=>$erreur]);
+            return view('employes.new',['erreur'=>$erreur]);
         }
         
     }
@@ -77,7 +77,7 @@ class EmployeController extends Controller
 
         $employe= Employe::findOrfail($id);
         
-        return view('pages.showEmploye',['employe'=>$employe]);
+        return view('employes.edit',['employe'=>$employe]);
     }
 
     /**

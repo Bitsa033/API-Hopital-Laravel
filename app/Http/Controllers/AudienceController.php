@@ -23,7 +23,7 @@ class AudienceController extends Controller
 
         $audiences= Audience::all();
         
-        return view('pages.audiences',[
+        return view('audiences.show',[
             'audiences'=>$audiences,
         ]);
     }
@@ -38,7 +38,7 @@ class AudienceController extends Controller
 
         $audience= Audience::findOrfail($id);
         
-        return view('pages.showAudience',['audience'=>$audience]);
+        return view('audiences.edit',['audience'=>$audience]);
     }
 
     /**
@@ -65,7 +65,7 @@ class AudienceController extends Controller
             return redirect('/');
         }
         
-        return view('pages.printAudiences',[
+        return view('printer.audiences',[
             'audiences'=>$audiences,
         ]);
     }
@@ -78,7 +78,7 @@ class AudienceController extends Controller
         if (!Auth::user()) {
             return redirect('/');
         }
-        return view('pages.audience',['erreur'=>'']);
+        return view('audiences.new',['erreur'=>'']);
     }
 
     /**
@@ -111,7 +111,7 @@ class AudienceController extends Controller
             // throw $th;
             $erreur=$th->getMessage();
            
-            return view('pages.audience',['erreur'=>$erreur]);
+            return view('audiences.new',['erreur'=>$erreur]);
             
         }
 

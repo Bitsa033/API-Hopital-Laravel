@@ -40,10 +40,18 @@ class ResetPasswordController extends Controller
         $email=$request->get('email');
         $pwd=$request->get('password');
         $id=DB::table('users')->where('email', $email)->first(['id']);
-        $user= User::findOrfail($id->id);
-        $user->update([
-            "password"=>$pwd
-        ]);
-        return redirect('/')->with('success','Vous venez de modifier votre code de sécurité');
+        // dd($id);
+        if ($id==null) {
+            return redirect('resetPasswordForm')->with('email_not_exist','Email introuvable dans notre base de données!');
+        } 
+        else {
+            $user= User::findOrfail($id->id);
+            $user->update([
+                "password"=>$pwd
+            ]);
+            return redirect('/')->with('success','Vous venez de modifier votre code de sécurité');
+            
+        }
+        
     }
 }

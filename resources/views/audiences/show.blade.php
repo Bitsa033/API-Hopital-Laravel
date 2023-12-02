@@ -13,7 +13,7 @@
                     <div class="alert alert-success">{{ $message }}</div>
                 @endif
             </h5>
-            <div class=" card card-body">
+            <div class=" card card-body" style="background: gray;">
                 <div class="form-inline">
                     <!-- rechercher un élément dans la table-->
                     <form class="d-flex">
@@ -41,30 +41,43 @@
                 </div>
                 <br>
 
-                <table class="table table-stripped table-bordered" *ngIf="produits">
-                    <thead>
-                        <tr>
-                            <th>Nom patient</th>
-                            <th>Type d'audience</th>
-                            <th>Responsable d'audience</th>
-                            <th>Options</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach ($audiences as $item)
+                @foreach ($audiences as $audience)
+                    <div class="card">
+                        <table>
                             <tr>
-                                <td class="text-center"> {{ $item->nom_patient }} </td>
-                                <td class="text-center"> {{ $item->audience_type }} </td>
-                                <td class="text-center"> {{ $item->nom_personnel }} </td>
-                                <td class="text-center">
-                                    <a href="/showAudience_{{ $item->id }}" class="btn btn-primary">Détails</a>
-                                </td>
+                                <th>Nom</th>
+                                <td>{{$audience->nom_patient}}</p></td>
                             </tr>
-                        @endforeach
+                            <tr>
+                                <th>Qualité</th>
+                                <td>{{$audience->qualite}}</p></td>
+                            </tr>
+                            <tr>
+                                <th>Type</th>
+                                <td>{{$audience->audience_type}}</p></td>
+                            </tr>
+                            <tr>
+                                <th>Objet</th>
+                                <td>{{$audience->objet}}</p></td>
+                            </tr>
+                            <tr>
+                                <th>Message</th>
+                                <td>{{$audience->message}}</p></td>
+                            </tr>
+                            <tr>
+                                <th>Crée le</th>
+                                <td>{{$audience->created_at}}</p></td>
+                            </tr>
+                            <div class="form-inline">
+                                <a href="/showAudience_{{ $audience->id }}" target="_blank" class=" offset-4 btn btn-light">Editer</a>
+                                <a href="" target="_blank" class="btn btn-light">Imprimer</a>
 
-                    </tbody>
-
-                </table>
+                            </div>
+                        </table>
+                    
+                    </div>
+                @endforeach
+                
             </div>
             <!--/card-body-->
 

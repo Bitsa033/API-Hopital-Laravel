@@ -11,34 +11,6 @@
             <h5 class="container">Audience n°{{ $audience->id }}: {{ $audience->nom_patient }} <a href="/printAudience" target="_blank" rel="noopener noreferrer"  class="btn btn-info"><i class="fa fa-print"> Imprimer</i></a></h5>
             <div class="card-body">
 
-                <table class="table table-stripped table-bordered" *ngIf="produits">
-                   
-                    <tbody>
-                        <tr>
-                            <th>Qualité</th>
-                            <td class="text-center"> {{ $audience->qualite }} </td>
-                        </tr>
-                        <tr>
-                            <th>Type d'audience</th>
-                            <td class="text-center"> {{ $audience->audience_type }} </td>
-                        </tr>
-                        <tr>
-                            <th>Objet</th>
-                            <td class="text-center"> {{ $audience->objet }} </td>
-                        </tr>
-                        <tr>
-                            <th>Message</th>
-                            <td class="text-center"> {{ $audience->message }} </td>
-                        </tr>
-                        <tr>
-                            <th>Responsable d'audience</th>
-                            <td class="text-center"> {{ $audience->nom_personnel }} </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-                <br>
-               
                 <form autocomplete="off" action="{{url('updateAudience',$audience->id)}}" method="POST" class="form-horizontal card card-body">
                     @csrf
                     <h4 class="card-title">Mise à jour</h4>
