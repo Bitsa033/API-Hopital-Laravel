@@ -22,11 +22,12 @@ class UserController extends Controller
         }
 
         $user= Auth::user();
+        $users=User::all();
         // $user= User::findOrfail(1);
         // dd($user);
 
         return view('users.show',[
-            'user'=>$user,
+            'users'=>$users,
             // 'user'=>$user
         ]);
     }
