@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Hospital app</title>
 </head>
 
 <body>
@@ -89,12 +89,10 @@
                             onclick="event.preventDefault();
                             document.getElementById('logout-form').submit();"
                             {{ __('Logout') }}>
-                            {{ Auth::user()->name }}
+                            {{ Auth::user()->name }} 
+                            <strong>| {{ Auth::user()->type }}</strong>
                         </a>
-                        <a class="info">
-                            {{ Auth::user()->type }}
-                        </a>
-
+                        
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                             @csrf
                         </form>

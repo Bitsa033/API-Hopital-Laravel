@@ -71,7 +71,7 @@
                                     <td>{{$audience->created_at}}</p></td>
                                 </tr>
                                 <div class="form-inline">
-                                    <a href="/showAudience_{{ $audience->id }}" target="_blank" class=" offset-4 btn btn-light">Editer</a>
+                                    <a href="/showAudience_{{ $audience->id }}" class=" offset-4 btn btn-light">Editer</a>
                                     <a href="" target="_blank" class="btn btn-light">Imprimer</a>
         
                                 </div>

@@ -49,7 +49,7 @@
                                     <td>{{$user->type}}</p></td>
                                 </tr>
                                 <div class="form-inline">
-                                    <a href="/showUser_{{ $user->id }}" target="_blank" class=" offset-4 btn btn-light">Editer</a>
+                                    <a href="/showUser_{{ $user->id }}" class=" offset-4 btn btn-light">Editer</a>
                                     <a href="" target="_blank" class="btn btn-light">Imprimer</a>
         
                                 </div>
