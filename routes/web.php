@@ -4,6 +4,7 @@ use App\Http\Controllers\AudienceController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\EmployeController;
+use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\RechercheController;
 use App\Http\Controllers\UserController;
 use App\Mail\MailableName;
@@ -54,6 +55,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 //recherches
 Route::get('recherches', [RechercheController::class,'show']);
+
+//patients
+Route::get('patients', [PatientsController::class,'index']);
+
 
 //employés
 Route::get('employes', [EmployeController::class,'index']);
