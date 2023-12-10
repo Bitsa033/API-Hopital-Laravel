@@ -4,6 +4,7 @@ use App\Http\Controllers\AudienceController;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\EmployeController;
+use App\Http\Controllers\RechercheController;
 use App\Http\Controllers\UserController;
 use App\Mail\MailableName;
 use Illuminate\Support\Facades\Route;
@@ -50,6 +51,9 @@ Route::post('resetPassword', [ResetPasswordController::class,'resetPassword']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//recherches
+Route::get('recherches', [RechercheController::class,'show']);
 
 //employés
 Route::get('employes', [EmployeController::class,'index']);

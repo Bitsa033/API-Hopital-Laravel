@@ -9,11 +9,6 @@
             </h5>
             <div class=" card card-body" style="background: blueviolet;">
                 <div class="form-inline">
-                    <!-- rechercher un élément dans la table-->
-                    <form class="d-flex ">
-                        <input class="form-control me-2" type="test" placeholder="Mot clé" aria-label="text">
-                        <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
-                    </form>
                     
                     <div class="flex offset-1"> 
                         <a href="/createEmploye" class="btn btn-primary"><i class="fa fa-plus"> Nouvel Employé</i></a>

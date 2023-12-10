@@ -142,7 +142,13 @@
 
                         <li class="nav-item">
                             <a href="/audiences" class="nav-link">
-                                <i class="fa fa-th"></i> Audiences
+                                <i class="fa fa-book-open"></i> Audiences
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="/recherches" class="nav-link">
+                                <i class="fa fa-search"></i> Rechercher
                             </a>
                         </li>
 

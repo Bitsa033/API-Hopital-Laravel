@@ -8,12 +8,7 @@
                 @endif
             </h5>
             <div class="card-body" style="background: blueviolet;">
-                <div class="form-inline">
-                    <!-- rechercher un élément dans la table-->
-                    <form class="d-flex ">
-                        <input class="form-control me-2" type="test" placeholder="Mot clé" aria-label="text">
-                        <button class="btn btn-outline-success" type="submit"><i class="fa fa-search"></i></button>
-                    </form>
+                <div class="form-inline"><br><br>
                     
                     <a href="/printUsers" target="_blank" class="offset-1 btn btn-info"><i class="fa fa-print"> Imprimer la liste</i></a>
                 </div>
